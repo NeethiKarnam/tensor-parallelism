@@ -1,6 +1,8 @@
 """Core data structures."""
 import needle
-from .backend_numpy import Device, cpu, all_devices
+# Take devices from whichever backend NEEDLE_BACKEND selects. Importing them from
+# backend_numpy made Tensor(x) default to the numpy device even under the nd backend.
+from .backend_selection import Device, cpu, all_devices
 from typing import List, Optional, NamedTuple, Tuple, Union, Dict
 from collections import namedtuple
 import numpy
