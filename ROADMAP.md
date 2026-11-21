@@ -42,6 +42,24 @@ barrier()
 
 Without `mpirun`, rank = 0, world size = 1, and `all_reduce` returns its input unchanged. Then f and g are identity and every test runs in a single process before MPI works.
 
+**`all_reduce` inside autograd (decided Nov 21):** `all_reduce` is a plain function, **not** a `TensorOp`. f and g in `parallel/ops.py` are the only TensorOps. g calls it directly in `compute` (which already receives NDArrays). f's `gradient` unwraps, reduces, and rewraps:
+
+```python
+class CopyToParallelRegion(TensorOp):          # f
+    def compute(self, x):
+        return x
+    def gradient(self, out_grad, node):
+        return Tensor.make_const(all_reduce(out_grad.realize_cached_data()))
+
+class ReduceFromParallelRegion(TensorOp):      # g
+    def compute(self, x):
+        return all_reduce(x)
+    def gradient(self, out_grad, node):
+        return out_grad
+```
+
+Why: a standalone AllReduce TensorOp would have all-reduce as its own gradient. g's backward must be identity (every rank already holds the full gradient), so using that op for g would silently multiply gradients by N. This keeps the communication rule only in f and g, and keeps `all_reduce` free of autograd code. Trade-off: `make_const` cuts the graph, so there are no gradients of f's gradient; we don't need them.
+
 **2. Parallel layers: `needle/parallel/layers.py`** (Anishka → Evelyn, Neethi)
 
 - Weights stay in Needle's `(in, out)` layout with `X @ W`. Column-parallel splits along axis 1, row-parallel along axis 0 (same as `sharding.py`).
@@ -195,14 +213,30 @@ Sizing (fp32 + Adam ≈ 16 bytes/param, activations extra):
 | **4 blocks (headline)** | **537M** | **≈ 8.6 GB (doesn't fit in 8 GB)** | **≈ 4.3 GB** |
 | d = 8192, h = 65536 | 1.07B | ≈ 17 GB | ≈ 8.6 GB |
 
-Benchmarks to produce:
+Benchmarks to produce (modeled on the Megatron-LM paper's measurements, adapted to our setup):
 
-1. **Peak memory per GPU vs. width**, 1 vs. 2 GPUs; the 1-GPU line ends at an out-of-memory marker. Headline plot.
-2. **Step time broken down:** compute, GPU→host copy, MPI all-reduce, host→GPU copy. Expect 2 GPUs to be slower per step (host copies); the point is that the model fits.
-3. **Communication share vs. width.** Each block does 2 all-reduces per step of batch × d floats, independent of h, so the comm share should shrink as h grows.
-4. **Correctness table:** max difference from dense in loss and gradients (target ≈ 1e-5), plus the loss-curve overlay.
+| # | Metric | Shown as | Notes |
+| --- | --- | --- | --- |
+| 1 | **Peak memory per GPU vs. h**, N = 1 vs. 2 | **Headline plot** | The N = 1 line ends at an out-of-memory marker. Megatron doesn't report this; for us it's the main point |
+| 2 | **Step-time breakdown:** compute, GPU→host copy, all-reduce, host→GPU copy | Stacked bar | Explains why 2 GPUs are slower per step. Timings come from `all_reduce` |
+| 3 | **Communication share vs. h** | Line plot | Each block does 2 all-reduces per step of B × d floats, independent of h, so the share should shrink as h grows |
+| 4 | **Achieved FLOP/s per GPU**, and % of RTX 2080 fp32 peak (≈ 10 TFLOPS) | Table | Megatron: 39 TFLOPS, ≈ 30% of peak. Expect a few % for us (homework matmul kernel, not cuBLAS); say why in the report. Use the T4 peak (≈ 8 TFLOPS) only for Kaggle runs |
+| 5 | **Weak-scaling efficiency**, N = 1 → 2 | One number + explanation | Grow h with N (h₂ = 2 h₁). Efficiency = throughput₂ / (2 × throughput₁). Megatron: 95% at 2 GPUs over NVLink. Per-GPU compute and comm are both constant here, so this number is the comm overhead (host copies + network); pair it with #2 |
+| 6 | **Model configs** | Table | d, h, blocks, params, N for every benchmark point (like Megatron Table 1) |
+| 7 | **Time per iteration / tokens per second**, single GPU vs. TP | Table | Like Megatron Table 2, per iteration instead of per epoch |
+| 8 | **Convergence:** Tiny Shakespeare loss curves, single vs. TP | Overlay plot | From the M3 runs |
+| 9 | **Correctness:** max difference from dense in loss and gradients | Table | Target ≈ 1e-5 |
+| — | Downstream quality (WikiText103, LAMBADA, RACE) | Skip | Matching the single-GPU baseline is enough for us |
 
-Measure memory per rank with `nvidia-smi --query-gpu=memory.used` or `pynvml` at the peak of a step.
+Items 4–7 come from the same runs as 1–3; the benchmark script only needs to log the config and FLOP count with each result.
+
+**FLOP counting** (use the same formula for every point):
+
+- One block, forward: 2 matmuls × 2·B·d·h = **4·B·d·h**
+- Training step (forward + backward ≈ 3 × forward): **≈ 12·B·d·h per block**, **÷ N per GPU** under TP
+- Achieved FLOP/s per GPU = FLOPs per GPU per step ÷ measured step time (median over steps, after warm-up)
+
+Measure memory per rank with `nvidia-smi --query-gpu=memory.used` or `pynvml` at the peak of a step. Record the GPU model with every run.
 
 ## Final report notebook
 
