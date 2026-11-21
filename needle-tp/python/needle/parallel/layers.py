@@ -3,7 +3,7 @@ import needle.nn as nn
 import numpy as np
 from needle.autograd import Tensor
 from needle.parallel.ops import f, g
-import needle.distributed as dist
+import needle.parallel.distributed as dist
 
 
 class ColumnParallelLinear(nn.Module):
