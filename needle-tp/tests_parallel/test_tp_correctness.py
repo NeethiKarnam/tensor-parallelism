@@ -2,7 +2,7 @@ import needle as ndl
 import needle.nn as nn
 from needle.autograd import Tensor, TensorOp
 from needle.parallel.layers import ColumnParallelLinear, RowParallelLinear, TPMLP
-import needle.distributed as dist
+import needle.parallel.distributed as dist
 
 def test_parallel_vs_dense():
     print("--- Starting Correction and Difference Tests (Tolerance: 1e-5) ---")

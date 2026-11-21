@@ -7,14 +7,14 @@ import numpy as np
 
 # Create a mock distributed module dynamically so the layers can import and execute it
 import types
-mock_dist = types.ModuleType('needle.distributed')
+mock_dist = types.ModuleType('needle.parallel.distributed')
 mock_dist.is_initialized = lambda: True
 mock_dist.get_world_size = lambda: 1
 mock_dist.get_rank = lambda: 0
 mock_dist.all_reduce = lambda x: x  # Identity in a single-process/mock environment
 
 # Inject mock module into sys.modules before importing the parallel layers
-sys.modules['needle.distributed'] = mock_dist
+sys.modules['needle.parallel.distributed'] = mock_dist
 
 import needle as ndl
 import needle.nn as nn

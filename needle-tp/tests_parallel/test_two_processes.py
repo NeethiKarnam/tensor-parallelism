@@ -1,7 +1,7 @@
 """
 Two-process tensor-parallel correctness test for needle-tp.
 
-Spawns WORLD_SIZE real processes. Each one gets its own mock `needle.distributed`
+Spawns WORLD_SIZE real processes. Each one gets its own mock `needle.parallel.distributed`
 whose all_reduce really communicates (via multiprocessing queues) and sums the
 tensors across ranks. Every rank then checks that its TPMLP shard matches the
 corresponding slice of a dense MLP built from identical weights.
@@ -27,8 +27,8 @@ COMM_TIMEOUT = 60
 
 
 def build_mock_dist(rank, world_size, queues):
-    """Mock needle.distributed with an all_reduce(sum) that talks to the other ranks."""
-    mock = types.ModuleType("needle.distributed")
+    """Mock needle.parallel.distributed with an all_reduce(sum) that talks to the other ranks."""
+    mock = types.ModuleType("needle.parallel.distributed")
     mock.is_initialized = lambda: True
     mock.get_world_size = lambda: world_size
     mock.get_rank = lambda: rank
@@ -38,7 +38,10 @@ def build_mock_dist(rank, world_size, queues):
         from needle.autograd import Tensor
         import needle.backend_ndarray as nd
 
-        is_tensor = isinstance(x, Tensor)  # F_Op.gradient passes a Tensor, G_Op.compute an NDArray
+        # Same contract as the real all_reduce (ROADMAP.md, Interfaces §1): raw NDArray in,
+        # new NDArray out. Rejecting Tensors catches f's gradient passing one by mistake.
+        if isinstance(x, Tensor):
+            raise TypeError("all_reduce takes a raw NDArray, got Tensor")
         local = np.asarray(x.numpy(), dtype=np.float32)
 
         parts = [None] * world_size
@@ -55,8 +58,6 @@ def build_mock_dist(rank, world_size, queues):
         for p in parts[1:]:
             total = total + p
 
-        if is_tensor:
-            return Tensor(total, device=x.device, dtype="float32", requires_grad=False)
         return nd.array(total, device=x.device)
 
     mock.all_reduce = all_reduce
@@ -83,17 +84,17 @@ def worker(rank, world_size, queues, result_queue):
 
     try:
         # Must happen before anything imports needle.parallel
-        sys.modules["needle.distributed"] = build_mock_dist(rank, world_size, queues)
+        sys.modules["needle.parallel.distributed"] = build_mock_dist(rank, world_size, queues)
 
         import needle as ndl  # noqa: F401
         import needle.nn as nn
         from needle.autograd import Tensor
         from needle.parallel.layers import TPMLP
 
-        dist = sys.modules["needle.distributed"]
+        dist = sys.modules["needle.parallel.distributed"]
 
         # ---- 0. all_reduce really sums across processes ----
-        local = Tensor(np.full((2, 3), rank + 1, dtype=np.float32))
+        local = Tensor(np.full((2, 3), rank + 1, dtype=np.float32)).realize_cached_data()
         reduced = dist.all_reduce(local).numpy()
         expected_sum = world_size * (world_size + 1) / 2
         check("all_reduce sums across ranks", reduced, np.full((2, 3), expected_sum))
