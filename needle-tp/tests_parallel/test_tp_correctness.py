@@ -1,3 +1,4 @@
+import numpy as np
 import needle as ndl
 import needle.nn as nn
 from needle.autograd import Tensor, TensorOp
@@ -5,8 +6,12 @@ from needle.parallel.layers import ColumnParallelLinear, RowParallelLinear, TPML
 import needle.parallel.distributed as dist
 
 def test_parallel_vs_dense():
+    # Join the MPI job (world size 1 without mpirun) before building any layer:
+    # layers read the world size at construction, and without init() every rank
+    # would build the full, unsharded model.
+    dist.init()
     print("--- Starting Correction and Difference Tests (Tolerance: 1e-5) ---")
-    
+
     # Set global seeds for reproducibility
     np.random.seed(42)
     
@@ -58,7 +63,8 @@ def test_parallel_vs_dense():
         parallel_loss.backward()
         
         # Compare Loss Difference
-        diff_loss = np.abs(dense_loss.numpy() - parallel_loss.numpy())
+        # .sum() gives a 1-element array on the nd backend, so reduce to a float
+        diff_loss = float(np.abs(dense_loss.numpy() - parallel_loss.numpy()).max())
         print(f"Loss Difference: {diff_loss:.2e}")
         assert diff_loss < 1e-5, f"Loss difference too high: {diff_loss}"
         
