@@ -20,15 +20,21 @@ class ColumnParallelLinear(nn.Module):
         assert out_features % self.world_size == 0, "out_features must be divisible by world_size"
         self.split_out_features = out_features // self.world_size
 
-        # Needle layout for weights is (in_features, out_features) for X @ W
+        # Needle layout for weights is (in_features, out_features) for X @ W.
+        # Init uses the FULL layer's fan_in (same scale as nn.Linear), drawn at the shard's shape.
         self.weight = nn.Parameter(
-            ndl.init.randn(in_features, self.split_out_features, device=device, dtype=dtype)
+            ndl.init.kaiming_uniform(
+                in_features, out_features,
+                shape=(in_features, self.split_out_features), device=device, dtype=dtype,
+            )
         )
 
         if self.bias_flag:
-            # 2D bias (1, split_out), matching nn.Linear's (1, out) layout
+            # 2D bias (1, split_out); same distribution as nn.Linear's bias (fan_in = out_features)
             self.bias = nn.Parameter(
-                ndl.init.zeros(1, self.split_out_features, device=device, dtype=dtype)
+                ndl.init.kaiming_uniform(
+                    out_features, 1, shape=(1, self.split_out_features), device=device, dtype=dtype,
+                )
             )
         else:
             self.bias = None
@@ -78,14 +84,22 @@ class RowParallelLinear(nn.Module):
         assert in_features % self.world_size == 0, "in_features must be divisible by world_size"
         self.split_in_features = in_features // self.world_size
 
+        # Init uses the FULL layer's fan_in (in_features, not in_features / N), drawn at the shard's shape.
         self.weight = nn.Parameter(
-            ndl.init.randn(self.split_in_features, out_features, device=device, dtype=dtype)
+            ndl.init.kaiming_uniform(
+                in_features, out_features,
+                shape=(self.split_in_features, out_features), device=device, dtype=dtype,
+            )
         )
 
-        # Full (1, out_features) bias on every rank; added after the g (all-reduce) op
+        # Full (1, out_features) bias on every rank; added after the g (all-reduce) op.
+        # Same distribution as nn.Linear's bias. Every rank must hold the same values:
+        # seed the RNG identically on all ranks before building the model.
         if self.bias_flag:
             self.bias = nn.Parameter(
-                ndl.init.zeros(1, out_features, device=device, dtype=dtype)
+                ndl.init.kaiming_uniform(
+                    out_features, 1, shape=(1, out_features), device=device, dtype=dtype,
+                )
             )
         else:
             self.bias = None
