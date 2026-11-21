@@ -20,9 +20,9 @@ What the check-in commits us to (Megatron-style tensor parallelism for MLP block
 
 - **Comm:** MPI only, through `mpi4py`. GPU data goes to the host, through `Allreduce(SUM)`, and back. NCCL, if we get to it, sits behind the same `all_reduce` interface.
 - **Backend:** always `NEEDLE_BACKEND=nd`. The HW4 ops call NDArray methods (`permute`, `compact`), so the `np` backend no longer works for backward passes. Each machine runs `make` once.
-- **GPU selection:** `CUDA_VISIBLE_DEVICES=<rank>` per process if a machine has several GPUs. GHC has one GPU per machine, so 2 ranks = 2 machines.
+- **GPU selection:** GHC has one GPU per machine, so a 2-GPU run is one rank on each of two GHC machines (see Compute → Two-machine runs). On a machine with several GPUs (Kaggle backup), each rank sets `CUDA_VISIBLE_DEVICES=<rank>`.
 - **LM:** char-level MLP. Last k chars → one-hot in numpy → column-parallel → ReLU → row-parallel → logits (vocab ≈ 65) → `SoftmaxLoss`. No `nn.Embedding`, no HW4 conv/RNN/transformer code, output layer not sharded.
-- **M2 headline:** a model that runs out of memory on one RTX 2080 (8 GB) trains on two. Target: 4 blocks of d = 4096, h = 16384 (537M params, ≈ 8.6 GB with Adam).
+- **M2 headline:** a model that runs out of memory on one GPU trains on two. On GHC (RTX 2080, 8 GB): 4 blocks of d = 4096, h = 16384 (537M params, ≈ 8.6 GB with Adam; ≈ 4.3 GB per GPU on two). On the Kaggle backup (T4, 16 GB): d = 8192, h = 65536 (1.07B params, ≈ 17 GB).
 - **Code location:** `python/needle/parallel/`, `apps/`, `tests_parallel/`. Avoid editing homework files unless unavoidable, and say so in the commit.
 
 ## Interfaces (agree before splitting up)
@@ -73,7 +73,7 @@ Work is split into two phases. Phase 1 puts all three of us on the core TP path,
 
 | Person | Works on | Done when |
 | --- | --- | --- |
-| **Neethi** | `distributed.py` (push it early; Anishka builds on it), `tests_parallel/test_allreduce.py`, and the GHC two-machine check: passwordless SSH, then `mpirun -np 2 --host ghc29,ghcYY hostname` (if it hangs, try `--mca btl_tcp_if_include <interface>`) | `mpirun -np 2` all-reduce passes on cpu and cuda, and the two-machine `hostname` test works |
+| **Neethi** | `distributed.py` (push it early; Anishka builds on it), `tests_parallel/test_allreduce.py`, and the two-machine GHC setup from Compute in your own account (CPU all-reduce across ghc29 + ghc32 already works for Evelyn) | `mpirun -np 2` all-reduce passes on cpu and cuda, including across two GHC machines with one GPU each |
 | **Anishka** | `parallel/ops.py` (f, g) and `parallel/layers.py` (`ColumnParallelLinear`, `RowParallelLinear`, `TPMLP`, `from_dense`) | Layers import and run with world size 1; then pass Evelyn's tests under `mpirun -np 2` |
 | **Evelyn** | Initializers PR first (unblocks the dense `nn.Linear` baseline). Then the correctness tests, written from the interfaces above: switch `test_forward.py` to `nd`; `test_backward.py` (each shard's gradient and dX vs. dense); `test_train.py` (a few Adam steps on random data, TP loss matches dense) | Tests run without `mpirun` and with `mpirun -np 2` |
 
@@ -94,7 +94,7 @@ Work is split into two phases. Phase 1 puts all three of us on the core TP path,
 | **Nov 22** | **M1:** forward, backward, and a few training steps across 2 ranks match dense | All |
 | Nov 23–24 | LM on Tiny Shakespeare | Evelyn |
 | **Nov 24** | **M3:** 2-rank LM loss matches dense | Evelyn |
-| Nov 24–26 | GPU benchmark runs on GHC | Neethi, Anishka |
+| Nov 24–26 | GPU benchmark runs on two GHC machines (Kaggle 2 × T4 as backup) | Neethi, Anishka |
 | **Nov 26** | **M2:** benchmarks done | Neethi |
 | Nov 26–28 | Record + edit video | All |
 | **Nov 28** | **Video due** | |
@@ -134,7 +134,7 @@ All three: write the report sections for your own piece, and review each other's
 
 ## Compute: GHC machines
 
-Develop and run CPU tests on a laptop or Colab (`mpirun -np 2`; on Colab add `--allow-run-as-root --oversubscribe`). Run GPU benchmarks on GHC.
+Develop and run CPU tests on a laptop or Colab (`mpirun -np 2`; on Colab add `--allow-run-as-root --oversubscribe`). Run the 2-GPU benchmarks on two GHC machines (one rank each); Kaggle 2 × T4 is the backup.
 
 ### Specs (checked Nov 17 on ghc29)
 
@@ -149,33 +149,36 @@ Develop and run CPU tests on a laptop or Colab (`mpirun -np 2`; on Colab add `--
 | CPU | 8 cores, no AVX-512 | Never build with `-march=native` on another machine and copy the `.so` over |
 | Shared lab machine | Others may use the GPU | Check `nvidia-smi` is idle before benchmarking |
 
-### Build steps on GHC
+### Setup and multi-machine runs: see [docs/GHC_SETUP.md](docs/GHC_SETUP.md)
 
-Each person builds in their own `~/private` clone (only you can read `~/private`).
+The guide covers everything from a fresh account: Python 3.13 venv and backend build (`gcc-11`, CUDA 11.7), the `~/.ssh/config` that lets `mpirun` reach other machines, picking machines with idle GPUs, the per-session login, run commands for 2 or 3 ranks, the check scripts (`scripts/check_allreduce.py`, `scripts/check_gpu.py`), and a table of every error we hit and its fix.
 
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-echo 'source $HOME/.local/bin/env' >> ~/.bashrc && source ~/.bashrc
-cd ~/private && uv python install 3.13 && uv venv --python 3.13 tp-venv
-echo 'source ~/private/tp-venv/bin/activate' >> ~/.bashrc && source ~/private/tp-venv/bin/activate
-uv pip install numpy mpi4py cmake pybind11
-git clone <repo> && cd tensor-parallelism/needle-tp
-export PATH=/usr/local/cuda-11.7/bin:$PATH
-mkdir -p build && cd build && cmake -DCUDA_HOST_COMPILER=/usr/bin/gcc-11 .. && cd .. && make
-NEEDLE_BACKEND=nd python tests_base/test_ops.py     # expect ALL PASS (cpu + cuda)
-```
+In short:
 
-Build on one machine only: the `Makefile` wipes `build/` when the hostname changes, and your home directory is shared across GHC machines, so don't run `make` on the second machine during a 2-machine run.
+- **Once:** build in `~/private` on **one** machine only (the Makefile wipes `build/` on a hostname change, and the files are shared). Set up `~/.ssh/config` and put `HWLOC_COMPONENTS=-gl` at the top of `~/.bashrc`.
+- **Each session:** `ssh ghcNN true` with your password for each remote machine (connections last 4 h). Then:
+  `mpirun -np 2 --host ghc29,ghc32 --mca plm_rsh_args "-o BatchMode=yes" -x NEEDLE_BACKEND=nd ~/private/tp-venv/bin/python <script>`
+- **Why not Kerberos or SSH keys:** the GHC servers reject Kerberos logins, and SSH-key sessions can't read `~/private` on AFS. SSH connection sharing gets around both.
+- **Status (Nov 21):** CPU all-reduce works across ghc29 + ghc32. The 3-machine run (+ ghc41) is not yet confirmed.
 
-### Still to check
+- [ ] `scripts/check_gpu.py` across two machines: each rank on its own RTX 2080
+- [ ] Each teammate repeats the setup in their own account (connections and `~/private` are per person)
+- [ ] Measure all-reduce latency and bandwidth between machines at several message sizes (for the report)
 
-- [ ] Passwordless SSH from one GHC machine to another, then `mpirun -np 2 --host ghc29,ghcYY hostname`
+### Backup: Kaggle 2 × T4
 
-### Backups if GHC falls through
+Both GPUs are on one machine: `mpirun -np 2`, each rank sets `CUDA_VISIBLE_DEVICES=<rank>`, no SSH, and no network in the comm cost.
+
+- [ ] Kaggle account with GPU enabled (Kaggle may require phone verification), and the "GPU T4 × 2" accelerator selected
+- [ ] `nvidia-smi` shows 2 GPUs; `which nvcc mpirun` (install Open MPI with `apt-get` if missing); `pip install mpi4py cmake pybind11`
+- [ ] `make` builds both backends; `NEEDLE_BACKEND=nd python tests_base/test_ops.py` passes on cuda
+- [ ] `mpirun --allow-run-as-root -np 2` all-reduce test passes, with each rank on its own GPU
+- [ ] Note the weekly GPU quota and plan runs to fit it
 
 | Option | GPUs | Cost | Notes |
 | --- | --- | --- | --- |
-| Kaggle Notebooks | 2 × T4 | Free, weekly quota | Run `!mpirun` from a cell |
+| **GHC, two machines (plan)** | 2 × RTX 2080, 8 GB each | Free | Connection-sharing setup above |
+| Kaggle Notebooks | 2 × T4, 16 GB each | Free, weekly quota | Run `!mpirun` from a cell |
 | GCP VM | 2 × T4 | Billed per hour | Last resort; stop it between sessions |
 
 ## Demo and benchmark plan
@@ -192,8 +195,8 @@ Sizing (fp32 + Adam ≈ 16 bytes/param, activations extra):
 | Model | Params | One GPU | Per GPU, 2 ranks |
 | --- | --- | --- | --- |
 | 1 block, d = 4096, h = 16384 | 134M | ≈ 2.1 GB | ≈ 1.1 GB |
-| **4 blocks (headline)** | **537M** | **≈ 8.6 GB (doesn't fit in 8 GB)** | **≈ 4.3 GB** |
-| d = 8192, h = 65536 | 1.07B | ≈ 17 GB | ≈ 8.6 GB |
+| **4 blocks (headline on GHC, 8 GB GPUs)** | **537M** | **≈ 8.6 GB (doesn't fit in 8 GB)** | **≈ 4.3 GB** |
+| d = 8192, h = 65536 (headline on the Kaggle T4 backup, 16 GB) | 1.07B | ≈ 17 GB (doesn't fit in 16 GB) | ≈ 8.6 GB |
 
 Benchmarks to produce:
 
@@ -212,7 +215,7 @@ Scaffold: `report/final_report.ipynb`. Colab has one GPU, so the notebook shows 
 | --- | --- | --- |
 | numpy simulation of 2 ranks | Notebook kernel | The math, with a hand-checkable forward and backward example |
 | `mpirun -np 2` cells | Colab CPU (real processes, real MPI) | Our code works across processes and matches dense; per-rank parameter memory halves |
-| Results files | GHC GPUs | Memory savings, the out-of-memory headline, comm cost, full LM loss curves |
+| Results files | Two GHC machines (or Kaggle 2 × T4) | Memory savings, the out-of-memory headline, comm cost, full LM loss curves |
 
 What the notebook needs from the code:
 
@@ -227,7 +230,9 @@ Figures in the report must be our own (the plagiarism policy covers figures, eve
 
 | Risk | Fallback |
 | --- | --- |
-| Two-machine `mpirun` doesn't work on GHC | Kaggle 2 × T4, or show the demo on 2 CPU processes and benchmark per-rank memory/comm on CPU |
+| GHC two-machine runs stop working (machines down, shared connections) | Kaggle 2 × T4; then GCP 2 × T4 for a few hours; otherwise CPU-only demo with per-rank memory/comm |
+| Activations push the 4-block model over ≈ 4.3 GB per RTX 2080 | Lower the batch size; the weights + Adam state still show the 2× saving |
+| Network between GHC machines makes the comm cost dominate | Expected and reportable: measure bandwidth separately and compare with the theoretical cost |
 | Host-side all-reduce makes GPU runs look slow | Report it as overhead, compare with the theoretical cost, list NCCL as future work |
 | Model too small to show memory savings | Scale width until one GPU runs out of memory |
 
@@ -246,5 +251,5 @@ Each one gives wrong numbers or a hang, not an error message.
 ## Open questions
 
 - [ ] Which day is our in-person presentation slot?
-- [ ] Does passwordless SSH + `mpirun` across two GHC machines work?
+- [x] Does `mpirun` across two GHC machines work? Yes (Nov 21), via SSH connection sharing; Kerberos login is refused by the servers. See Compute.
 - [ ] Is the GitHub repo private?
