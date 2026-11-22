@@ -1,6 +1,6 @@
 # Running on GHC: build, SSH, and multi-machine `mpirun`
 
-How to go from a fresh Andrew account to a tensor-parallel run with one rank per GHC machine. Each GHC machine has one RTX 2080 (8 GB), so N GPUs means N machines. Verified Nov 21, 2026: CPU all-reduce across ghc29 + ghc32. Not yet verified: the GPU check across machines (step 6c) and 3-machine runs.
+How to go from a fresh Andrew account to a tensor-parallel run with one rank per GHC machine. Each GHC machine has one RTX 2080 (8 GB), so N GPUs means N machines. Verified Nov 21, 2026: CPU all-reduce across ghc29 + ghc32. Verified Nov 22: the TP layers on 4 GPUs across 4 machines (`apps/tp_shard_demo.py --device cuda` on ghc29, 27, 32, 33).
 
 **Overview**
 
@@ -66,7 +66,20 @@ grep -q HWLOC_COMPONENTS ~/.bashrc || sed -i '1i export HWLOC_COMPONENTS=-gl' ~/
 
 ## 3. Pick machines (each time you choose new ones)
 
-Find reachable machines from the one you're on:
+The script does this step and step 4 for you. Run it from `needle-tp/` on the machine you'll launch from:
+
+```bash
+bash scripts/find_gpus.sh --login             # 2 machines (this one + 1)
+bash scripts/find_gpus.sh --login --want 4    # 4 machines
+```
+
+1. It adds every reachable machine's host key to `~/.ssh/known_hosts`, with no password and no "yes" prompt.
+2. It checks this machine's GPU, then asks for your password one machine at a time (each login opens the 4 h shared connection) until it has found enough idle GPUs (≤ 500 MiB used, ≤ 10% utilization).
+3. It prints the `--host` list to pass to `mpirun`.
+
+Without `--login`, it only checks machines you're already logged in to. Use `--range 26-50` to choose which machines to scan.
+
+To do it by hand instead, find reachable machines from the one you're on:
 
 ```bash
 for i in $(seq 26 50); do
@@ -120,6 +133,10 @@ mpirun -np 2 --host ghc29,ghc32 --mca plm_rsh_args "-o BatchMode=yes" -x NEEDLE_
 # 3 ranks
 mpirun -np 3 --host ghc29,ghc32,ghc41 --mca plm_rsh_args "-o BatchMode=yes" -x NEEDLE_BACKEND=nd \
   ~/private/tp-venv/bin/python <script.py> [args]
+
+# 4 ranks: the TP layers on 4 GPUs, compared with the dense model (verified Nov 22)
+mpirun -np 4 --host ghc29,ghc27,ghc32,ghc33 --mca plm_rsh_args "-o BatchMode=yes" -x NEEDLE_BACKEND=nd \
+  ~/private/tp-venv/bin/python apps/tp_shard_demo.py --device cuda --example handcheck
 ```
 
 Or put the machines in a hostfile (one rank per machine):
