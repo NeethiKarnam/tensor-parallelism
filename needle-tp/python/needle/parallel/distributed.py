@@ -39,7 +39,7 @@ _rank = 0
 _world_size = 1
 _debug = False
 
-_STAT_KEYS = ("calls", "bytes", "d2h_s", "allreduce_s", "h2d_s")
+_STAT_KEYS = ("calls", "bytes", "sync_s", "d2h_s", "allreduce_s", "h2d_s")
 _stats = dict.fromkeys(_STAT_KEYS, 0)
 
 
@@ -170,6 +170,11 @@ def all_reduce(x):
     if _debug:
         _check_same_shape(x.shape)
 
+    ts = time.perf_counter()
+    if isinstance(x, NDArray) and x.device.name == "cuda":
+        # GPU kernels run in the background. Copying one float from a fresh array
+        # waits for them, so that wait is timed as sync_s (compute), not d2h_s.
+        x.device.empty((1,)).numpy()
     t0 = time.perf_counter()
     if isinstance(x, NDArray):
         # Copy views (slices, transposes, broadcasts) into one contiguous block on
@@ -180,7 +185,6 @@ def all_reduce(x):
         host = np.ascontiguousarray(x.numpy(), dtype=np.float32)
     else:  # numpy backend
         host = np.ascontiguousarray(x, dtype=np.float32)
-    # On cuda this copy also waits for queued GPU work, so d2h_s includes it.
     t1 = time.perf_counter()
 
     out = np.empty_like(host)
@@ -192,6 +196,7 @@ def all_reduce(x):
 
     _stats["calls"] += 1
     _stats["bytes"] += host.nbytes
+    _stats["sync_s"] += t0 - ts
     _stats["d2h_s"] += t1 - t0
     _stats["allreduce_s"] += t2 - t1
     _stats["h2d_s"] += t3 - t2
@@ -212,7 +217,7 @@ def _check_same_shape(shape):
 def get_comm_stats():
     """
     @brief This function returns the communication timing totals.
-    @return dict of calls, bytes, d2h_s, allreduce_s and h2d_s since the last reset
+    @return dict of calls, bytes, sync_s, d2h_s, allreduce_s and h2d_s since the last reset
     """
     return dict(_stats)
 
