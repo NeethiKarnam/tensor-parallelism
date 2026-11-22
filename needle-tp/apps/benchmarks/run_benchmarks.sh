@@ -36,10 +36,10 @@ run() {  # run <N> <bench_tp.py args...>
   if [ -n "$HOSTS" ]; then hostarg="--host $(echo "$HOSTS" | cut -d, -f1-"$n")"; fi
   echo "=== N=$n: $*"
   if [ "$n" = 1 ]; then
-    NEEDLE_BACKEND=nd $PYTHON benchmarks/bench_tp.py "$@" --device "$DEVICE" --out-dir "$OUT" $SIZE
+    NEEDLE_BACKEND=nd $PYTHON apps/benchmarks/bench_tp.py "$@" --device "$DEVICE" --out-dir "$OUT" $SIZE
   else
     eval "$MPIRUN -np $n $hostarg $MPIRUN_EXTRA -x NEEDLE_BACKEND=nd $xarg $PYTHON \
-      benchmarks/bench_tp.py \"\$@\" --device $DEVICE --out-dir $OUT $SIZE"
+     apps/ benchmarks/bench_tp.py \"\$@\" --device $DEVICE --out-dir $OUT $SIZE"
   fi
   local rc=$?
   [ $rc -ne 0 ] && echo "!! N=$n '$*' exited with $rc (continuing)"
