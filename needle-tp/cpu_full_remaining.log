@@ -1,0 +1,254 @@
+=== N=2: correctness
+Using needle backend
+Using needle backend
+suite=correctness N=2 device=cpu host=Anishkas-MacBook-Pro-8.local
+{
+ "one_block": {
+  "dloss": 0.0,
+  "dgrad": 9.313225746154785e-09,
+  "dgrad_rel": 2.426781337585572e-07,
+  "ddx": 1.862645149230957e-09,
+  "pass": true
+ },
+ "two_blocks": {
+  "dloss": 0.0,
+  "dgrad": 1.210719347000122e-08,
+  "dgrad_rel": 2.7224364616836754e-07,
+  "ddx": 2.7939677238464355e-09,
+  "pass": true
+ },
+ "adam5": {
+  "dloss": 3.5762786865234375e-07,
+  "dgrad": 4.912726581096649e-07,
+  "dgrad_rel": 9.877991085939571e-06,
+  "pass": true
+ }
+}
+wrote results/tp_bench_cpu_full/correctness_N2.json
+=== N=2: headline --blocks 1
+Using needle backend
+Using needle backend
+suite=headline N=2 device=cpu host=Anishkas-MacBook-Pro-8.local
+  [headline_b1_N2.json] step  -3    6573.2 ms  loss 4.9446
+  [headline_b1_N2.json] step  -2    7414.3 ms  loss 8.6047
+  [headline_b1_N2.json] step  -1    8167.8 ms  loss 2.1634
+  [headline_b1_N2.json] step   0    6931.8 ms  loss 1.2103
+  [headline_b1_N2.json] step   1    5754.3 ms  loss 1.1105
+  [headline_b1_N2.json] step   2    5855.4 ms  loss 1.0136
+  [headline_b1_N2.json] step   3    6367.2 ms  loss 0.9462
+  [headline_b1_N2.json] step   4    6215.2 ms  loss 0.9245
+  [headline_b1_N2.json] step   5    6740.8 ms  loss 0.9243
+  [headline_b1_N2.json] step   6    6575.2 ms  loss 0.9278
+  [headline_b1_N2.json] step   7    5485.0 ms  loss 0.9298
+  [headline_b1_N2.json] step   8    5464.0 ms  loss 0.9301
+  [headline_b1_N2.json] step   9    7139.5 ms  loss 0.9298
+wrote results/tp_bench_cpu_full/headline_b1_N2.json
+=== N=2: scaling --h-base 4096
+Using needle backend
+Using needle backend
+suite=scaling N=2 device=cpu host=Anishkas-MacBook-Pro-8.local
+  [scaling_N2.json] step  -3    6168.5 ms  loss 4.9446
+  [scaling_N2.json] step  -2    5240.8 ms  loss 8.6047
+  [scaling_N2.json] step  -1    5241.0 ms  loss 2.1634
+  [scaling_N2.json] step   0    5511.1 ms  loss 1.2103
+  [scaling_N2.json] step   1    6013.7 ms  loss 1.1105
+  [scaling_N2.json] step   2    5387.7 ms  loss 1.0136
+  [scaling_N2.json] step   3    6270.4 ms  loss 0.9462
+  [scaling_N2.json] step   4    5701.2 ms  loss 0.9245
+  [scaling_N2.json] step   5    5714.0 ms  loss 0.9243
+  [scaling_N2.json] step   6    5570.5 ms  loss 0.9278
+  [scaling_N2.json] step   7    5692.0 ms  loss 0.9298
+  [scaling_N2.json] step   8    5538.4 ms  loss 0.9301
+  [scaling_N2.json] step   9    5461.2 ms  loss 0.9298
+wrote results/tp_bench_cpu_full/scaling_N2.json
+=== N=2: allreduce
+Using needle backend
+Using needle backend
+suite=allreduce N=2 device=cpu host=Anishkas-MacBook-Pro-8.local
+         4 B  MPI        0.9 us    0.005 GB/s   device e2e        6.8 us    0.001 GB/s
+        1 KB  MPI        2.0 us    0.523 GB/s   device e2e        8.0 us    0.127 GB/s
+       64 KB  MPI       15.3 us    4.286 GB/s   device e2e       24.2 us    2.712 GB/s
+        1 MB  MPI      130.3 us    8.049 GB/s   device e2e      313.1 us    3.349 GB/s
+       16 MB  MPI     2445.8 us    6.860 GB/s   device e2e     7431.3 us    2.258 GB/s
+   B x d x 4  MPI      409.1 us    5.126 GB/s   device e2e     1063.8 us    1.971 GB/s
+wrote results/tp_bench_cpu_full/allreduce_N2.json
+=== N=4: correctness
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=correctness N=4 device=cpu host=Anishkas-MacBook-Pro-8.local
+{
+ "one_block": {
+  "dloss": 0.0,
+  "dgrad": 7.450580596923828e-09,
+  "dgrad_rel": 1.9414250700684575e-07,
+  "ddx": 1.862645149230957e-09,
+  "pass": true
+ },
+ "two_blocks": {
+  "dloss": 0.0,
+  "dgrad": 1.210719347000122e-08,
+  "dgrad_rel": 2.7224364616836754e-07,
+  "ddx": 2.7939677238464355e-09,
+  "pass": true
+ },
+ "adam5": {
+  "dloss": 3.5762786865234375e-07,
+  "dgrad": 7.660128176212311e-07,
+  "dgrad_rel": 1.620772051071759e-05,
+  "pass": true
+ }
+}
+wrote results/tp_bench_cpu_full/correctness_N4.json
+=== N=4: headline --blocks 1
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=headline N=4 device=cpu host=Anishkas-MacBook-Pro-8.local
+  [headline_b1_N4.json] step  -3    2329.2 ms  loss 8.8972
+  [headline_b1_N4.json] step  -2    2313.4 ms  loss 8.1779
+  [headline_b1_N4.json] step  -1    2691.4 ms  loss 2.9559
+  [headline_b1_N4.json] step   0    2436.3 ms  loss 1.4638
+  [headline_b1_N4.json] step   1    2624.1 ms  loss 1.0763
+  [headline_b1_N4.json] step   2    2429.3 ms  loss 0.9745
+  [headline_b1_N4.json] step   3    2438.0 ms  loss 0.9602
+  [headline_b1_N4.json] step   4    2403.4 ms  loss 0.9612
+  [headline_b1_N4.json] step   5    2519.9 ms  loss 0.9621
+  [headline_b1_N4.json] step   6    2426.3 ms  loss 0.9618
+  [headline_b1_N4.json] step   7    2445.6 ms  loss 0.9614
+  [headline_b1_N4.json] step   8    2303.0 ms  loss 0.9612
+  [headline_b1_N4.json] step   9    2373.1 ms  loss 0.9608
+wrote results/tp_bench_cpu_full/headline_b1_N4.json
+=== N=4: scaling --h-base 4096
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=scaling N=4 device=cpu host=Anishkas-MacBook-Pro-8.local
+  [scaling_N4.json] step  -3    5576.4 ms  loss 8.8893
+  [scaling_N4.json] step  -2    5308.8 ms  loss 34.1790
+  [scaling_N4.json] step  -1    5975.1 ms  loss 4.6184
+  [scaling_N4.json] step   0    6268.4 ms  loss 2.2531
+  [scaling_N4.json] step   1    6422.8 ms  loss 2.3574
+  [scaling_N4.json] step   2    6285.4 ms  loss 1.7015
+  [scaling_N4.json] step   3    6863.1 ms  loss 1.1698
+  [scaling_N4.json] step   4    6225.2 ms  loss 1.0033
+  [scaling_N4.json] step   5    6510.0 ms  loss 0.9831
+  [scaling_N4.json] step   6    5348.6 ms  loss 0.9869
+  [scaling_N4.json] step   7    4948.1 ms  loss 0.9898
+  [scaling_N4.json] step   8    4910.3 ms  loss 0.9904
+  [scaling_N4.json] step   9    4933.6 ms  loss 0.9899
+wrote results/tp_bench_cpu_full/scaling_N4.json
+=== N=4: allreduce
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=allreduce N=4 device=cpu host=Anishkas-MacBook-Pro-8.local
+         4 B  MPI        1.4 us    0.003 GB/s   device e2e        7.5 us    0.001 GB/s
+        1 KB  MPI        3.5 us    0.296 GB/s   device e2e        9.7 us    0.106 GB/s
+       64 KB  MPI       30.5 us    2.152 GB/s   device e2e       39.7 us    1.650 GB/s
+        1 MB  MPI      254.5 us    4.120 GB/s   device e2e      410.1 us    2.557 GB/s
+       16 MB  MPI     5240.1 us    3.202 GB/s   device e2e    11559.7 us    1.451 GB/s
+   B x d x 4  MPI      682.6 us    3.072 GB/s   device e2e     1528.3 us    1.372 GB/s
+wrote results/tp_bench_cpu_full/allreduce_N4.json
+=== N=8: correctness
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=correctness N=8 device=cpu host=Anishkas-MacBook-Pro-8.local
+{
+ "one_block": {
+  "dloss": 0.0,
+  "dgrad": 7.450580596923828e-09,
+  "dgrad_rel": 1.9414250700684575e-07,
+  "ddx": 1.862645149230957e-09,
+  "pass": true
+ },
+ "two_blocks": {
+  "dloss": 1.1920928955078125e-07,
+  "dgrad": 1.1175870895385742e-08,
+  "dgrad_rel": 2.6845666411453863e-07,
+  "ddx": 2.3283064365386963e-09,
+  "pass": true
+ },
+ "adam5": {
+  "dloss": 2.384185791015625e-07,
+  "dgrad": 4.0838494896888733e-07,
+  "dgrad_rel": 8.640833366504149e-06,
+  "pass": true
+ }
+}
+wrote results/tp_bench_cpu_full/correctness_N8.json
+=== N=8: headline --blocks 1
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=headline N=8 device=cpu host=Anishkas-MacBook-Pro-8.local
+  [headline_b1_N8.json] step  -3    1385.8 ms  loss 16.9146
+  [headline_b1_N8.json] step  -2    1344.0 ms  loss 9.2606
+  [headline_b1_N8.json] step  -1    1463.3 ms  loss 4.1157
+  [headline_b1_N8.json] step   0    1540.1 ms  loss 1.8506
+  [headline_b1_N8.json] step   1    1362.2 ms  loss 1.1513
+  [headline_b1_N8.json] step   2    1345.1 ms  loss 1.0112
+  [headline_b1_N8.json] step   3    1349.0 ms  loss 0.9897
+  [headline_b1_N8.json] step   4    1335.2 ms  loss 0.9863
+  [headline_b1_N8.json] step   5    1372.0 ms  loss 0.9853
+  [headline_b1_N8.json] step   6    1378.0 ms  loss 0.9847
+  [headline_b1_N8.json] step   7    1296.9 ms  loss 0.9842
+  [headline_b1_N8.json] step   8    1274.8 ms  loss 0.9838
+  [headline_b1_N8.json] step   9    1306.2 ms  loss 0.9834
+wrote results/tp_bench_cpu_full/headline_b1_N8.json
+=== N=8: scaling --h-base 4096
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=scaling N=8 device=cpu host=Anishkas-MacBook-Pro-8.local
+  [scaling_N8.json] step  -3    8029.6 ms  loss 16.7781
+  [scaling_N8.json] step  -2    9988.7 ms  loss 143.1217
+  [scaling_N8.json] step  -1   10479.2 ms  loss 12.2345
+  [scaling_N8.json] step   0   12900.5 ms  loss 6.8511
+  [scaling_N8.json] step   1   12725.1 ms  loss 9.2170
+  [scaling_N8.json] step   2   10191.7 ms  loss 5.7815
+  [scaling_N8.json] step   3   14461.4 ms  loss 2.4671
+  [scaling_N8.json] step   4   11916.0 ms  loss 1.2637
+  [scaling_N8.json] step   5   10617.1 ms  loss 1.0299
+  [scaling_N8.json] step   6    6963.4 ms  loss 1.0012
+  [scaling_N8.json] step   7    7432.7 ms  loss 0.9993
+  [scaling_N8.json] step   8    9026.5 ms  loss 0.9998
+  [scaling_N8.json] step   9    8846.4 ms  loss 1.0002
+wrote results/tp_bench_cpu_full/scaling_N8.json
+=== N=8: allreduce
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=allreduce N=8 device=cpu host=Anishkas-MacBook-Pro-8.local
+         4 B  MPI        2.9 us    0.001 GB/s   device e2e       15.1 us    0.000 GB/s
+        1 KB  MPI        7.4 us    0.139 GB/s   device e2e       20.0 us    0.051 GB/s
+       64 KB  MPI       51.5 us    1.273 GB/s   device e2e       80.0 us    0.819 GB/s
+        1 MB  MPI      561.8 us    1.867 GB/s   device e2e      893.1 us    1.174 GB/s
+       16 MB  MPI    11323.5 us    1.482 GB/s   device e2e    17924.6 us    0.936 GB/s
+   B x d x 4  MPI     1428.3 us    1.468 GB/s   device e2e     3122.9 us    0.672 GB/s
+wrote results/tp_bench_cpu_full/allreduce_N8.json

@@ -1,0 +1,84 @@
+{
+ "world_size": 2,
+ "device": "cpu",
+ "gpu": "cpu",
+ "hosts": [
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local"
+ ],
+ "machines": 1,
+ "command": "apps/benchmarks/bench_tp.py allreduce --device cpu --out-dir results/tp_bench_cpu_full --d 4096 --h 8192 --blocks 1 --batch 128 --steps 10 --warmup 3",
+ "time": "2026-11-23 14:43:50",
+ "config": {
+  "batch": 128,
+  "d": 4096
+ },
+ "rows": [
+  {
+   "label": "4 B",
+   "floats": 1,
+   "bytes": 4,
+   "mpi_us": 0.8749775588512421,
+   "e2e_us": 6.834045052528381,
+   "mpi_algbw_gbs": 0.0045715458179882915,
+   "mpi_busbw_gbs": 0.0045715458179882915,
+   "e2e_algbw_gbs": 0.0005853048917961297,
+   "e2e_busbw_gbs": 0.0005853048917961297
+  },
+  {
+   "label": "1 KB",
+   "floats": 256,
+   "bytes": 1024,
+   "mpi_us": 1.959037035703659,
+   "e2e_us": 8.041970431804657,
+   "mpi_algbw_gbs": 0.5227057892921322,
+   "mpi_busbw_gbs": 0.5227057892921322,
+   "e2e_algbw_gbs": 0.12733197773896932,
+   "e2e_busbw_gbs": 0.12733197773896932
+  },
+  {
+   "label": "64 KB",
+   "floats": 16384,
+   "bytes": 65536,
+   "mpi_us": 15.291618183255196,
+   "e2e_us": 24.166423827409744,
+   "mpi_algbw_gbs": 4.285746558318072,
+   "mpi_busbw_gbs": 4.285746558318072,
+   "e2e_algbw_gbs": 2.7118617329581283,
+   "e2e_busbw_gbs": 2.7118617329581283
+  },
+  {
+   "label": "1 MB",
+   "floats": 262144,
+   "bytes": 1048576,
+   "mpi_us": 130.2706077694893,
+   "e2e_us": 313.10413032770157,
+   "mpi_algbw_gbs": 8.049214001176919,
+   "mpi_busbw_gbs": 8.049214001176919,
+   "e2e_algbw_gbs": 3.348968916195828,
+   "e2e_busbw_gbs": 3.348968916195828
+  },
+  {
+   "label": "16 MB",
+   "floats": 4194304,
+   "bytes": 16777216,
+   "mpi_us": 2445.8335246890783,
+   "e2e_us": 7431.29150941968,
+   "mpi_algbw_gbs": 6.859508560433511,
+   "mpi_busbw_gbs": 6.859508560433511,
+   "e2e_algbw_gbs": 2.2576447147489387,
+   "e2e_busbw_gbs": 2.2576447147489387
+  },
+  {
+   "label": "B x d x 4",
+   "floats": 524288,
+   "bytes": 2097152,
+   "mpi_us": 409.1246519237757,
+   "e2e_us": 1063.7708473950624,
+   "mpi_algbw_gbs": 5.125948754588179,
+   "mpi_busbw_gbs": 5.125948754588179,
+   "e2e_algbw_gbs": 1.9714321041373315,
+   "e2e_busbw_gbs": 1.9714321041373315
+  }
+ ]
+}

@@ -1,0 +1,90 @@
+{
+ "world_size": 4,
+ "device": "cpu",
+ "gpu": "cpu",
+ "hosts": [
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local"
+ ],
+ "machines": 1,
+ "command": "apps/benchmarks/bench_tp.py scaling --h-base 4096 --device cpu --out-dir results/tp_bench_cpu_full --d 4096 --h 8192 --blocks 1 --batch 128 --steps 10 --warmup 3",
+ "time": "2026-11-23 14:44:23",
+ "config": {
+  "d": 4096,
+  "h": 16384,
+  "blocks": 1,
+  "batch": 128,
+  "steps": 10,
+  "warmup": 3,
+  "optimizer": "adam"
+ },
+ "predicted_params_per_rank": 33562624,
+ "predicted_state_bytes": 537001984,
+ "predicted_activation_bytes": 25165824,
+ "mem_mode": "none",
+ "gpu_total_bytes": null,
+ "status": "ok",
+ "params_per_rank": 33562624,
+ "peak_total_bytes": 1668661248,
+ "peak_model_bytes": 1620705280,
+ "baseline_bytes": 47955968,
+ "step_ms": 6246.774916537106,
+ "compute_ms": 6240.733083104715,
+ "d2h_ms": 0.2309789415448904,
+ "allreduce_ms": 9.658895898610353,
+ "h2d_ms": 0.2235625870525837,
+ "comm_ms": 10.128250112757087,
+ "calls_per_step": 1.0,
+ "bytes_per_call": 2097152.0,
+ "step_ms_all": [
+  6268.393208272755,
+  6422.8027909994125,
+  6285.441041924059,
+  6863.130708225071,
+  6225.156624801457,
+  6510.049082804471,
+  5348.563625011593,
+  4948.0913751758635,
+  4910.309457685798,
+  4933.626832906157
+ ],
+ "final_loss": 0.9898668527603149,
+ "gpu_util_pct": null,
+ "flops_per_gpu_step": 25769803776.0,
+ "per_rank": [
+  {
+   "status": "ok",
+   "peak_total_bytes": 1668661248,
+   "peak_model_bytes": 1620705280,
+   "step_ms": 6246.774916537106,
+   "comm_ms": 6.517499685287476,
+   "gpu_util_pct": null
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1668644864,
+   "peak_model_bytes": 1620557824,
+   "step_ms": 6222.723375540227,
+   "comm_ms": 7.677833316847682,
+   "gpu_util_pct": null
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1659928576,
+   "peak_model_bytes": 1611808768,
+   "step_ms": 6114.615812432021,
+   "comm_ms": 10.128250112757087,
+   "gpu_util_pct": null
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1666433024,
+   "peak_model_bytes": 1618182144,
+   "step_ms": 6228.296062676236,
+   "comm_ms": 4.7856043092906475,
+   "gpu_util_pct": null
+  }
+ ]
+}

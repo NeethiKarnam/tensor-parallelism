@@ -1,0 +1,90 @@
+{
+ "world_size": 8,
+ "device": "cpu",
+ "gpu": "cpu",
+ "hosts": [
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local"
+ ],
+ "machines": 1,
+ "command": "apps/benchmarks/bench_tp.py allreduce --device cpu --out-dir results/tp_bench_cpu_full --d 4096 --h 8192 --blocks 1 --batch 128 --steps 10 --warmup 3",
+ "time": "2026-11-23 14:48:23",
+ "config": {
+  "batch": 128,
+  "d": 4096
+ },
+ "rows": [
+  {
+   "label": "4 B",
+   "floats": 1,
+   "bytes": 4,
+   "mpi_us": 2.874992787837982,
+   "e2e_us": 15.104422345757484,
+   "mpi_algbw_gbs": 0.0013913078380304502,
+   "mpi_busbw_gbs": 0.002434788716553288,
+   "e2e_algbw_gbs": 0.00026482310335578744,
+   "e2e_busbw_gbs": 0.000463440430872628
+  },
+  {
+   "label": "1 KB",
+   "floats": 256,
+   "bytes": 1024,
+   "mpi_us": 7.375143468379974,
+   "e2e_us": 20.0001522898674,
+   "mpi_algbw_gbs": 0.13884475663290818,
+   "mpi_busbw_gbs": 0.24297832410758932,
+   "e2e_algbw_gbs": 0.051199610140908035,
+   "e2e_busbw_gbs": 0.08959931774658907
+  },
+  {
+   "label": "64 KB",
+   "floats": 16384,
+   "bytes": 65536,
+   "mpi_us": 51.50004290044308,
+   "e2e_us": 79.97918874025345,
+   "mpi_algbw_gbs": 1.2725426292690751,
+   "mpi_busbw_gbs": 2.2269496012208814,
+   "e2e_algbw_gbs": 0.8194131627521222,
+   "e2e_busbw_gbs": 1.4339730348162139
+  },
+  {
+   "label": "1 MB",
+   "floats": 262144,
+   "bytes": 1048576,
+   "mpi_us": 561.7709830403328,
+   "e2e_us": 893.0624462664127,
+   "mpi_algbw_gbs": 1.866554221659962,
+   "mpi_busbw_gbs": 3.2664698879049334,
+   "e2e_algbw_gbs": 1.174135139579249,
+   "e2e_busbw_gbs": 2.0547364942636857
+  },
+  {
+   "label": "16 MB",
+   "floats": 4194304,
+   "bytes": 16777216,
+   "mpi_us": 11323.500657454133,
+   "e2e_us": 17924.625426530838,
+   "mpi_algbw_gbs": 1.4816280324897362,
+   "mpi_busbw_gbs": 2.5928490568570384,
+   "e2e_algbw_gbs": 0.9359869788501958,
+   "e2e_busbw_gbs": 1.6379772129878427
+  },
+  {
+   "label": "B x d x 4",
+   "floats": 524288,
+   "bytes": 2097152,
+   "mpi_us": 1428.3335767686367,
+   "e2e_us": 3122.8959560394287,
+   "mpi_algbw_gbs": 1.4682508582795148,
+   "mpi_busbw_gbs": 2.569439001989151,
+   "e2e_algbw_gbs": 0.6715407844261597,
+   "e2e_busbw_gbs": 1.1751963727457795
+  }
+ ]
+}

@@ -1,0 +1,86 @@
+{
+ "world_size": 4,
+ "device": "cpu",
+ "gpu": "cpu",
+ "hosts": [
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local"
+ ],
+ "machines": 1,
+ "command": "apps/benchmarks/bench_tp.py allreduce --device cpu --out-dir results/tp_bench_cpu_full --d 4096 --h 8192 --blocks 1 --batch 128 --steps 10 --warmup 3",
+ "time": "2026-11-23 14:45:41",
+ "config": {
+  "batch": 128,
+  "d": 4096
+ },
+ "rows": [
+  {
+   "label": "4 B",
+   "floats": 1,
+   "bytes": 4,
+   "mpi_us": 1.4170072972774506,
+   "e2e_us": 7.458031177520752,
+   "mpi_algbw_gbs": 0.0028228506710483076,
+   "mpi_busbw_gbs": 0.004234276006572462,
+   "e2e_algbw_gbs": 0.0005363345774225774,
+   "e2e_busbw_gbs": 0.000804501866133866
+  },
+  {
+   "label": "1 KB",
+   "floats": 256,
+   "bytes": 1024,
+   "mpi_us": 3.4580007195472717,
+   "e2e_us": 9.667128324508667,
+   "mpi_algbw_gbs": 0.29612486608564503,
+   "mpi_busbw_gbs": 0.44418729912846755,
+   "e2e_algbw_gbs": 0.10592597570096339,
+   "e2e_busbw_gbs": 0.15888896355144508
+  },
+  {
+   "label": "64 KB",
+   "floats": 16384,
+   "bytes": 65536,
+   "mpi_us": 30.45913763344288,
+   "e2e_us": 39.729755371809006,
+   "mpi_algbw_gbs": 2.1516039222346257,
+   "mpi_busbw_gbs": 3.2274058833519383,
+   "e2e_algbw_gbs": 1.6495445135940177,
+   "e2e_busbw_gbs": 2.4743167703910265
+  },
+  {
+   "label": "1 MB",
+   "floats": 262144,
+   "bytes": 1048576,
+   "mpi_us": 254.47946973145008,
+   "e2e_us": 410.082982853055,
+   "mpi_algbw_gbs": 4.120473848466255,
+   "mpi_busbw_gbs": 6.180710772699383,
+   "e2e_algbw_gbs": 2.5569849124310924,
+   "e2e_busbw_gbs": 3.8354773686466386
+  },
+  {
+   "label": "16 MB",
+   "floats": 4194304,
+   "bytes": 16777216,
+   "mpi_us": 5240.124417468905,
+   "e2e_us": 11559.667065739632,
+   "mpi_algbw_gbs": 3.201682758537203,
+   "mpi_busbw_gbs": 4.802524137805805,
+   "e2e_algbw_gbs": 1.4513580628739786,
+   "e2e_busbw_gbs": 2.177037094310968
+  },
+  {
+   "label": "B x d x 4",
+   "floats": 524288,
+   "bytes": 2097152,
+   "mpi_us": 682.6040334999561,
+   "e2e_us": 1528.3329412341118,
+   "mpi_algbw_gbs": 3.0722818751116194,
+   "mpi_busbw_gbs": 4.608422812667429,
+   "e2e_algbw_gbs": 1.3721826857350683,
+   "e2e_busbw_gbs": 2.0582740286026024
+  }
+ ]
+}

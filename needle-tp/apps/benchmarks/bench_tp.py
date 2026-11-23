@@ -170,6 +170,9 @@ class Monitor:
                     if line.startswith("VmRSS:"):
                         return int(line.split()[1]) * 1024
             return 0
+        # if self.kind == "cpu":
+        #     import psutil
+        #     return psutil.Process(os.getpid()).memory_info().rss
         if self._nvml is not None:
             try:
                 for p in self._nvml.nvmlDeviceGetComputeRunningProcesses(self._handle):
