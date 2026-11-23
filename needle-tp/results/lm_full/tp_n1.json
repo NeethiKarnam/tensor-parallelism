@@ -1,7 +1,7 @@
 {
  "mode": "tp",
  "world_size": 1,
- "hardware": "ghc41 (rank 0), 1x NVIDIA GeForce RTX 2080",
+ "hardware": "ghc27 (rank 0), 1x NVIDIA GeForce RTX 2080",
  "config": {
   "context": 16,
   "hidden": 1024,
@@ -1122,8 +1122,8 @@
   1.8336775302886963,
   1.810307776927948
  ],
- "train_time_s": 28.59002685546875,
- "step_ms_median": 5.36799430847168,
+ "train_time_s": 31.336403608322144,
+ "step_ms_median": 5.883455276489258,
  "comm": {
   "calls": 0,
   "bytes": 0,

@@ -1,7 +1,7 @@
 {
  "mode": "tp",
  "world_size": 8,
- "hardware": "ghc41 (rank 0), 8x NVIDIA GeForce RTX 2080",
+ "hardware": "ghc27 (rank 0), 8x NVIDIA GeForce RTX 2080",
  "config": {
   "context": 16,
   "hidden": 1024,
@@ -44,14 +44,14 @@
   4.242407560348511,
   2.836094355583191
  ],
- "train_time_s": 11.172467470169067,
- "step_ms_median": 127.30789184570312,
+ "train_time_s": 0.8530399799346924,
+ "step_ms_median": 3.3860206604003906,
  "comm": {
   "calls": 120,
   "bytes": 1996800,
-  "d2h_s": 0.002137784023943823,
-  "allreduce_s": 10.917275766005332,
-  "h2d_s": 0.002773031999822706
+  "d2h_s": 0.002150332002202049,
+  "allreduce_s": 0.601524200028507,
+  "h2d_s": 0.002569101045082789
  },
  "sample_prompt": "ROMEO:\n",
  "sample": "ROMEO:\n\n\n  o  he  he  oor hor  hor the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior "

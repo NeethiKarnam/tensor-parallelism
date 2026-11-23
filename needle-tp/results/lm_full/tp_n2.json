@@ -1,7 +1,7 @@
 {
  "mode": "tp",
  "world_size": 2,
- "hardware": "ghc41 (rank 0), 2x NVIDIA GeForce RTX 2080",
+ "hardware": "ghc27 (rank 0), 2x NVIDIA GeForce RTX 2080",
  "config": {
   "context": 16,
   "hidden": 1024,
@@ -1122,14 +1122,14 @@
   1.8345576167106628,
   1.8081453442573547
  ],
- "train_time_s": 27.559733390808105,
- "step_ms_median": 5.128145217895508,
+ "train_time_s": 28.584699869155884,
+ "step_ms_median": 5.349874496459961,
  "comm": {
   "calls": 5510,
   "bytes": 91686400,
-  "d2h_s": 0.15725593707611552,
-  "allreduce_s": 2.4055245359486435,
-  "h2d_s": 0.12692037745728157
+  "d2h_s": 0.17034048726054607,
+  "allreduce_s": 2.3681069368103635,
+  "h2d_s": 0.12229531916818814
  },
  "sample_prompt": "ROMEO:\n",
  "sample": "ROMEO:\nI would thee the the trears of the propless to the seep the with the with the well we to the prout to the propere the will where the conser with a more the be the from and he will with the senter and his for his consers and and thee the with the store the the tree the the the reare the the the reare"

@@ -1,7 +1,7 @@
 {
  "mode": "tp",
  "world_size": 4,
- "hardware": "ghc41 (rank 0), 4x NVIDIA GeForce RTX 2080",
+ "hardware": "ghc27 (rank 0), 4x NVIDIA GeForce RTX 2080",
  "config": {
   "context": 16,
   "hidden": 1024,
@@ -1122,14 +1122,14 @@
   1.8349846482276917,
   1.8138613104820251
  ],
- "train_time_s": 156.81118392944336,
- "step_ms_median": 3.2367706298828125,
+ "train_time_s": 17.794365882873535,
+ "step_ms_median": 3.2181739807128906,
  "comm": {
   "calls": 5510,
   "bytes": 91686400,
-  "d2h_s": 0.10637440179561963,
-  "allreduce_s": 143.66551411718683,
-  "h2d_s": 0.12470585775736254
+  "d2h_s": 0.10607674468337791,
+  "allreduce_s": 4.617529301154718,
+  "h2d_s": 0.1208560570012196
  },
  "sample_prompt": "ROMEO:\n",
  "sample": "ROMEO:\nI would the preater him son the surse the be and thee the the treather there ore the the for the consers and and thee the with the store to me to the son, and where the crown to the to the forth the the beds to the with a more and there to the with the well we the with the well we the with the well "

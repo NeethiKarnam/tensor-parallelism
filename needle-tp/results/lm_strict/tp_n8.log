@@ -1,3 +1,296 @@
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+ Data for JOB [3712,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [3712,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 5 Bound: UNBOUND
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [3712,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 4 Bound: UNBOUND
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [3712,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 0 Bound: UNBOUND
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [3712,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 1 Bound: UNBOUND
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [3712,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 3 Bound: UNBOUND
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [3712,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 7 Bound: UNBOUND
+
+ =============================================================
+ Data for JOB [3712,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 6 Bound: UNBOUND
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [3712,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 2 Bound: UNBOUND
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [3712,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
 Using needle backend
 Using needle backend
 Using needle backend
@@ -9,16 +302,16 @@ Using needle backend
 Tiny Shakespeare: 1,003,854 train / 111,540 val chars, vocab 65
 mode tp, 8 rank(s), device cuda: 141,633 params on this rank of 1,132,609 total
 step     0  val loss 4.2424
-step     0  loss 4.2470  (27 ms/step)
-step    10  loss 3.5579  (105 ms/step)
-step    20  loss 3.1778  (127 ms/step)
-step    30  loss 3.1706  (116 ms/step)
-step    40  loss 3.1128  (26 ms/step)
-step    50  loss 3.3220  (29 ms/step)
-step    60  loss 3.1847  (8 ms/step)
-step    70  loss 2.8954  (8 ms/step)
-step    80  loss 2.8342  (6 ms/step)
-step    90  loss 2.9371  (6 ms/step)
+step     0  loss 4.2470  (4 ms/step)
+step    10  loss 3.5579  (4 ms/step)
+step    20  loss 3.1778  (3 ms/step)
+step    30  loss 3.1706  (4 ms/step)
+step    40  loss 3.1128  (3 ms/step)
+step    50  loss 3.3220  (4 ms/step)
+step    60  loss 3.1847  (3 ms/step)
+step    70  loss 2.8954  (4 ms/step)
+step    80  loss 2.8342  (3 ms/step)
+step    90  loss 2.9371  (3 ms/step)
 step   100  val loss 2.8361
 
 --- greedy sample ---
@@ -27,4 +320,4 @@ ROMEO:
 
   o  he  he  oor hor  hor the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior 
 ---------------------
-wrote results/lm_strict/tp_n8.json
+wrote results_neethi/lm_strict/tp_n8.json

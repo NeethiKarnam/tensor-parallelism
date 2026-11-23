@@ -1,7 +1,7 @@
 {
  "mode": "tp",
  "world_size": 8,
- "hardware": "ghc41 (rank 0), 8x NVIDIA GeForce RTX 2080",
+ "hardware": "ghc27 (rank 0), 8x NVIDIA GeForce RTX 2080",
  "config": {
   "context": 16,
   "hidden": 1024,
@@ -1122,14 +1122,14 @@
   1.8319131731987,
   1.8104965686798096
  ],
- "train_time_s": 19.0108482837677,
- "step_ms_median": 3.470182418823242,
+ "train_time_s": 19.095542669296265,
+ "step_ms_median": 3.4568309783935547,
  "comm": {
   "calls": 5510,
   "bytes": 91686400,
-  "d2h_s": 0.09816803194553358,
-  "allreduce_s": 6.656023581177578,
-  "h2d_s": 0.12270278589130612
+  "d2h_s": 0.09781056066276506,
+  "allreduce_s": 6.56247874404653,
+  "h2d_s": 0.12332303325092653
  },
  "sample_prompt": "ROMEO:\n",
  "sample": "ROMEO:\nI would thee the the the reare the the forth and therefore the be the here of the with a there to the see the forth and therefore the be the here of the with a there to the see the forth and therefore the be the here of the with a there to the see the forth and therefore the be the here of the with "
