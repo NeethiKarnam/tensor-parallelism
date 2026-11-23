@@ -128,8 +128,6 @@ def main():
     base_b1 = head1[1] if ok(head1[1]) else None
     if ok(head[1]):
         base_ms, base_note = head[1]["step_ms"], "measured"
-    elif base_b1:
-        base_ms, base_note = base_b1["step_ms"] * K, f"estimated = {K} x the measured 1-block N=1 step"
     else:
         base_ms, base_note = None, None
     rows = []
@@ -145,8 +143,10 @@ def main():
             rows.append([n, n if n > 1 else 1, B, "—", "—", "—", "—"])
     md += ["## Throughput", "", table(["N", "Machines", "Batch", "Median step (ms)", "Samples/s",
                                        "Speedup vs. N=1", "Parallel efficiency"], rows)]
-    if base_note:
-        md += ["", f"Speedup baseline (N=1 does not fit): {f(base_ms)} ms, {base_note}."]
+    if base_ms is not None:
+        md += ["", f"Speedup baseline: {f(base_ms)} ms, measured at N=1."]
+    else:
+        md += ["", "Speedup and efficiency are unavailable: no successful measured N=1 baseline."]
     rows = []
     for n in WORLD:
         r = head1[n]
@@ -156,9 +156,18 @@ def main():
                          f(sp / n * 100, 0) + " %" if sp else "—"])
         else:
             rows.append([n, "—", B, "—", "—", "—", "—"])
-    md += ["", "Supplement: the same comparison with 1 block (134M params), which fits on one GPU, so every number "
-           "is measured.", "", table(["N", "Machines", "Batch", "Median step (ms)", "Samples/s",
-                                      "Speedup vs. N=1", "Parallel efficiency"], rows), ""]
+    md += [
+    "",
+    "Supplement: one-block results. Successful-run timings are measured; "
+    "speedup requires a successful one-block N=1 baseline.",
+    "",
+    table(
+        ["N", "Machines", "Batch", "Median step (ms)", "Samples/s",
+         "Speedup vs. N=1", "Parallel efficiency"],
+        rows,
+    ),
+    "",
+    ]
 
     # ---------------------------------------------------------------- Communication
     rows = []
@@ -236,13 +245,13 @@ def main():
     # ---------------------------------------------------------------- Utilization
     rows = []
     for n in WORLD:
-        r = head1[n] if n == 1 and ok(head1[1]) else head[n]
+        r = head[n]
         fl = 12 * B * D * H * K / n
         if ok(r):
             fl = r["flops_per_gpu_step"]  # 1-block run for N=1 (the 4-block model does not fit)
             t = r["step_ms"] / 1e3
             tf = fl / t / 1e12
-            rows.append([n, f"{fl / 1e9:,.0f} GFLOP" + (" (1 block)" if n == 1 and r is head1[1] else ""),
+            rows.append([n, f"{fl / 1e9:,.0f} GFLOP",
                          f"{t:.3f}", f"{tf:.3f}", f"{tf / a.peak_tflops * 100:.1f} %", f(r.get("gpu_util_pct"), 0)])
         else:
             rows.append([n, f"{fl / 1e9:,.0f} GFLOP", "—", "—", "—", "—"])
@@ -250,7 +259,7 @@ def main():
                                         f"% of peak ({a.peak_tflops:g} TFLOPS)", "GPU util (%)"], rows),
            "", "FLOPs = 12·B·d·h per block (fwd + bwd ≈ 3 × fwd), ÷ N, × blocks. Achieved TFLOPS counts the whole "
            "step including communication. GPU util is NVML's utilization.gpu (fraction of time a kernel was running, "
-           "not SM occupancy), averaged over the timed steps. N=1 uses the 1-block run.", ""]
+"not SM occupancy), averaged over the timed steps. All rows use the selected headline configuration.", ""]
 
     text = "\n".join(md)
     with open(os.path.join(a.dir, "tables.md"), "w") as fh:

@@ -58,4 +58,3 @@ for n in $NS; do
     esac
   done
 done
-$PYTHON apps/benchmarks/make_tables.py --dir "$OUT" --peak-tflops "$PEAK_TFLOPS"
