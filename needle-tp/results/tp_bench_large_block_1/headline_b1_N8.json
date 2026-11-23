@@ -1,0 +1,126 @@
+{
+ "world_size": 8,
+ "device": "cuda",
+ "gpu": "NVIDIA GeForce RTX 2080",
+ "hosts": [
+  "ghc41.ghc.andrew.cmu.edu",
+  "ghc29.ghc.andrew.cmu.edu",
+  "ghc32.ghc.andrew.cmu.edu",
+  "ghc33.ghc.andrew.cmu.edu",
+  "ghc40.ghc.andrew.cmu.edu",
+  "ghc42.ghc.andrew.cmu.edu",
+  "ghc46.ghc.andrew.cmu.edu",
+  "ghc48.ghc.andrew.cmu.edu"
+ ],
+ "machines": 8,
+ "command": "apps/benchmarks/bench_tp.py headline --blocks 1 --device cuda --out-dir results/tp_bench_full_large --d 4096 --h 16384 --batch 128",
+ "time": "2026-11-23 12:08:56",
+ "config": {
+  "d": 4096,
+  "h": 16384,
+  "blocks": 1,
+  "batch": 128,
+  "steps": 10,
+  "warmup": 3,
+  "optimizer": "adam"
+ },
+ "predicted_params_per_rank": 16783360,
+ "predicted_state_bytes": 268533760,
+ "predicted_activation_bytes": 18874368,
+ "mem_mode": "nvidia-smi",
+ "gpu_total_bytes": 8589934592,
+ "status": "ok",
+ "params_per_rank": 16783360,
+ "peak_total_bytes": 1574961152,
+ "peak_model_bytes": 1457520640,
+ "baseline_bytes": 117440512,
+ "step_ms": 113.77106800136971,
+ "compute_ms": 57.99677399954817,
+ "d2h_ms": 0.3156415004923474,
+ "allreduce_ms": 56.158419502025936,
+ "h2d_ms": 0.2368060013395734,
+ "comm_ms": 56.71570249978686,
+ "calls_per_step": 1.0,
+ "bytes_per_call": 2097152.0,
+ "step_ms_all": [
+  107.2733100008918,
+  100.4636270008632,
+  97.52346499954001,
+  102.12859899911564,
+  99.95727100249496,
+  100.34057599841617,
+  98.0830260014045,
+  97.0214560002205,
+  100.83787199982908,
+  99.5422050000343
+ ],
+ "final_loss": 0.9909232258796692,
+ "gpu_util_pct": 19.65625,
+ "flops_per_gpu_step": 12884901888.0,
+ "per_rank": [
+  {
+   "status": "ok",
+   "peak_total_bytes": 1342177280,
+   "peak_model_bytes": 1224736768,
+   "step_ms": 100.14892350045557,
+   "comm_ms": 51.47646600016742,
+   "gpu_util_pct": 18.0
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1356857344,
+   "peak_model_bytes": 1239416832,
+   "step_ms": 99.9888730020757,
+   "comm_ms": 51.30164600086573,
+   "gpu_util_pct": 20.5
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1574961152,
+   "peak_model_bytes": 1457520640,
+   "step_ms": 113.77106800136971,
+   "comm_ms": 55.741039499480394,
+   "gpu_util_pct": 16.0
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1356857344,
+   "peak_model_bytes": 1239416832,
+   "step_ms": 102.70142399895121,
+   "comm_ms": 52.88214350002818,
+   "gpu_util_pct": 17.5
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1342177280,
+   "peak_model_bytes": 1224736768,
+   "step_ms": 108.8233094997122,
+   "comm_ms": 50.885585998912575,
+   "gpu_util_pct": 22.0
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1390411776,
+   "peak_model_bytes": 1272971264,
+   "step_ms": 99.05856200020935,
+   "comm_ms": 50.40553799881309,
+   "gpu_util_pct": 20.5
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1342177280,
+   "peak_model_bytes": 1224736768,
+   "step_ms": 104.70250549951743,
+   "comm_ms": 56.71570249978686,
+   "gpu_util_pct": 17.25
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1342177280,
+   "peak_model_bytes": 1224736768,
+   "step_ms": 111.74986899823125,
+   "comm_ms": 53.03170000115642,
+   "gpu_util_pct": 25.5
+  }
+ ]
+}

@@ -1,0 +1,72 @@
+[
+ {
+  "world_size": 2,
+  "hidden": 16384,
+  "blocks": 1,
+  "params_per_rank": 67121152,
+  "peak_mem_mb": 4648.0,
+  "step_ms": 154.87664949978353,
+  "allreduce_ms": 19.504758001858136,
+  "host_copy_ms": 0.5969150006421842
+ },
+ {
+  "world_size": 4,
+  "hidden": 16384,
+  "blocks": 1,
+  "params_per_rank": 33562624,
+  "peak_mem_mb": 2576.0,
+  "step_ms": 258.8352055008727,
+  "allreduce_ms": 50.7980554993992,
+  "host_copy_ms": 0.6985894979152363
+ },
+ {
+  "world_size": 8,
+  "hidden": 16384,
+  "blocks": 1,
+  "params_per_rank": 16783360,
+  "peak_mem_mb": 1390.0,
+  "step_ms": 113.77106800136971,
+  "allreduce_ms": 56.158419502025936,
+  "host_copy_ms": 0.5524475018319208
+ },
+ {
+  "world_size": 2,
+  "hidden": 16384,
+  "blocks": 1,
+  "params_per_rank": 67121152,
+  "peak_mem_mb": 4648.0,
+  "step_ms": 154.87664949978353,
+  "allreduce_ms": 19.504758001858136,
+  "host_copy_ms": 0.5969150006421842
+ },
+ {
+  "world_size": 4,
+  "hidden": 16384,
+  "blocks": 1,
+  "params_per_rank": 33562624,
+  "peak_mem_mb": 2576.0,
+  "step_ms": 258.8352055008727,
+  "allreduce_ms": 50.7980554993992,
+  "host_copy_ms": 0.6985894979152363
+ },
+ {
+  "world_size": 8,
+  "hidden": 16384,
+  "blocks": 1,
+  "params_per_rank": 16783360,
+  "peak_mem_mb": 1390.0,
+  "step_ms": 113.77106800136971,
+  "allreduce_ms": 56.158419502025936,
+  "host_copy_ms": 0.5524475018319208
+ },
+ {
+  "world_size": 1,
+  "hidden": 4096,
+  "blocks": 4,
+  "params_per_rank": 134250496,
+  "peak_mem_mb": 6340.0,
+  "step_ms": 288.4441219994187,
+  "allreduce_ms": 0.0,
+  "host_copy_ms": 0.0
+ }
+]
