@@ -66,6 +66,14 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 
 import numpy as np  # noqa: E402
 
+import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+PYTHON_DIR = REPO_ROOT / "python"
+
+sys.path.insert(0, str(PYTHON_DIR))
+
 import needle as ndl  # noqa: E402
 import needle.backend_ndarray as nd  # noqa: E402
 import needle.nn as nn  # noqa: E402

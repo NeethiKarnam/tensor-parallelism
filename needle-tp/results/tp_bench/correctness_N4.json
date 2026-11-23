@@ -1,0 +1,43 @@
+{
+ "world_size": 4,
+ "device": "cuda",
+ "gpu": "NVIDIA GeForce RTX 2080",
+ "hosts": [
+  "ghc54.ghc.andrew.cmu.edu",
+  "ghc32.ghc.andrew.cmu.edu",
+  "ghc33.ghc.andrew.cmu.edu",
+  "ghc40.ghc.andrew.cmu.edu"
+ ],
+ "machines": 4,
+ "command": "apps/benchmarks/bench_tp.py correctness --device cuda --out-dir results/tp_bench",
+ "time": "2026-11-22 19:37:59",
+ "config": {
+  "d": 64,
+  "h": 256,
+  "batch": 16,
+  "tol": 1e-05,
+  "loss": "mean squared error (sum / (B*d))"
+ },
+ "results": {
+  "one_block": {
+   "dloss": 0.0,
+   "dgrad": 7.450580596923828e-09,
+   "dgrad_rel": 1.9414250700684575e-07,
+   "ddx": 1.862645149230957e-09,
+   "pass": true
+  },
+  "two_blocks": {
+   "dloss": 0.0,
+   "dgrad": 1.30385160446167e-08,
+   "dgrad_rel": 2.6345465098010836e-07,
+   "ddx": 2.4156179279088974e-09,
+   "pass": true
+  },
+  "adam5": {
+   "dloss": 4.76837158203125e-07,
+   "dgrad": 9.224750101566315e-07,
+   "dgrad_rel": 1.9518230559389138e-05,
+   "pass": true
+  }
+ }
+}

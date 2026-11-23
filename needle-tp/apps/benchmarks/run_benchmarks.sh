@@ -39,7 +39,7 @@ run() {  # run <N> <bench_tp.py args...>
     NEEDLE_BACKEND=nd $PYTHON apps/benchmarks/bench_tp.py "$@" --device "$DEVICE" --out-dir "$OUT" $SIZE
   else
     eval "$MPIRUN -np $n $hostarg $MPIRUN_EXTRA -x NEEDLE_BACKEND=nd $xarg $PYTHON \
-     apps/ benchmarks/bench_tp.py \"\$@\" --device $DEVICE --out-dir $OUT $SIZE"
+     apps/benchmarks/bench_tp.py \"\$@\" --device $DEVICE --out-dir $OUT $SIZE"
   fi
   local rc=$?
   [ $rc -ne 0 ] && echo "!! N=$n '$*' exited with $rc (continuing)"
@@ -58,4 +58,4 @@ for n in $NS; do
     esac
   done
 done
-$PYTHON benchmarks/make_tables.py --dir "$OUT" --peak-tflops "$PEAK_TFLOPS"
+$PYTHON apps/benchmarks/make_tables.py --dir "$OUT" --peak-tflops "$PEAK_TFLOPS"
