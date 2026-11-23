@@ -1,0 +1,58 @@
+{
+ "mode": "tp",
+ "world_size": 4,
+ "hardware": "ghc41 (rank 0), 4x NVIDIA GeForce RTX 2080",
+ "config": {
+  "context": 16,
+  "hidden": 1024,
+  "lr": 0.001,
+  "seed": 0,
+  "data_seed": 1,
+  "batch": 64,
+  "steps": 100
+ },
+ "params_per_rank": 283201,
+ "step": [
+  0,
+  10,
+  20,
+  30,
+  40,
+  50,
+  60,
+  70,
+  80,
+  90
+ ],
+ "loss": [
+  4.246990203857422,
+  3.5579299926757812,
+  3.1777873039245605,
+  3.1705641746520996,
+  3.112778663635254,
+  3.3219714164733887,
+  3.1847286224365234,
+  2.8953611850738525,
+  2.83420729637146,
+  2.9370999336242676
+ ],
+ "val_step": [
+  0,
+  100
+ ],
+ "val_loss": [
+  4.242407608032226,
+  2.836094379425049
+ ],
+ "train_time_s": 12.47998857498169,
+ "step_ms_median": 127.62308120727539,
+ "comm": {
+  "calls": 120,
+  "bytes": 1996800,
+  "d2h_s": 0.002314218982064631,
+  "allreduce_s": 12.191167259108624,
+  "h2d_s": 0.0028159209396108054
+ },
+ "sample_prompt": "ROMEO:\n",
+ "sample": "ROMEO:\n\n\n  o  he  he  oor hor  hor the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior the  io the  ior "
+}
