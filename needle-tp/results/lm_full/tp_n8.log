@@ -1,0 +1,860 @@
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+ Data for JOB [12495,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [12495,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 0 Bound: UNBOUND
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [12495,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 1 Bound: UNBOUND
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [12495,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 7 Bound: UNBOUND
+
+ =============================================================
+ Data for JOB [12495,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 3 Bound: UNBOUND
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [12495,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 5 Bound: UNBOUND
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [12495,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 4 Bound: UNBOUND
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [12495,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 2 Bound: N/A
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 6 Bound: UNBOUND
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+ Data for JOB [12495,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: ghc27	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 0 Bound: N/A
+
+ Data for node: ghc29	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 1 Bound: N/A
+
+ Data for node: ghc38	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 2 Bound: UNBOUND
+
+ Data for node: ghc39	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 3 Bound: N/A
+
+ Data for node: ghc40	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 4 Bound: N/A
+
+ Data for node: ghc41	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 5 Bound: N/A
+
+ Data for node: ghc42	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 6 Bound: N/A
+
+ Data for node: ghc46	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [12495,1] App: 0 Process rank: 7 Bound: N/A
+
+ =============================================================
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Tiny Shakespeare: 1,003,854 train / 111,540 val chars, vocab 65
+mode tp, 8 rank(s), device cuda: 141,633 params on this rank of 1,132,609 total
+step     0  val loss 4.2424
+step     0  loss 4.2470  (3 ms/step)
+step    10  loss 3.5579  (3 ms/step)
+step    20  loss 3.1778  (4 ms/step)
+step    30  loss 3.1706  (4 ms/step)
+step    40  loss 3.1128  (4 ms/step)
+step    50  loss 3.3220  (3 ms/step)
+step    60  loss 3.1847  (3 ms/step)
+step    70  loss 2.8954  (4 ms/step)
+step    80  loss 2.8342  (3 ms/step)
+step    90  loss 2.9371  (4 ms/step)
+step   100  val loss 2.8361
+step   100  loss 2.9837  (4 ms/step)
+step   110  loss 2.8691  (5 ms/step)
+step   120  loss 2.8242  (3 ms/step)
+step   130  loss 2.5638  (5 ms/step)
+step   140  loss 2.9223  (4 ms/step)
+step   150  loss 2.8274  (5 ms/step)
+step   160  loss 2.7367  (3 ms/step)
+step   170  loss 2.5766  (5 ms/step)
+step   180  loss 2.7039  (3 ms/step)
+step   190  loss 3.2443  (5 ms/step)
+step   200  val loss 2.5155
+step   200  loss 2.6435  (3 ms/step)
+step   210  loss 2.5053  (3 ms/step)
+step   220  loss 2.5728  (4 ms/step)
+step   230  loss 2.6033  (4 ms/step)
+step   240  loss 2.3894  (4 ms/step)
+step   250  loss 2.5397  (4 ms/step)
+step   260  loss 2.3082  (3 ms/step)
+step   270  loss 2.3415  (4 ms/step)
+step   280  loss 2.5904  (3 ms/step)
+step   290  loss 2.8285  (3 ms/step)
+step   300  val loss 2.3278
+step   300  loss 2.5499  (3 ms/step)
+step   310  loss 2.5767  (4 ms/step)
+step   320  loss 2.0735  (3 ms/step)
+step   330  loss 2.5252  (4 ms/step)
+step   340  loss 2.5092  (4 ms/step)
+step   350  loss 2.1713  (4 ms/step)
+step   360  loss 2.7761  (3 ms/step)
+step   370  loss 2.0859  (4 ms/step)
+step   380  loss 2.1273  (3 ms/step)
+step   390  loss 2.1201  (3 ms/step)
+step   400  val loss 2.2653
+step   400  loss 2.3651  (3 ms/step)
+step   410  loss 2.3591  (3 ms/step)
+step   420  loss 2.3846  (3 ms/step)
+step   430  loss 2.2603  (3 ms/step)
+step   440  loss 2.3512  (3 ms/step)
+step   450  loss 2.0268  (4 ms/step)
+step   460  loss 2.0421  (3 ms/step)
+step   470  loss 2.3187  (3 ms/step)
+step   480  loss 2.1426  (3 ms/step)
+step   490  loss 1.9482  (3 ms/step)
+step   500  val loss 2.2370
+step   500  loss 2.0241  (3 ms/step)
+step   510  loss 2.4691  (3 ms/step)
+step   520  loss 2.3597  (3 ms/step)
+step   530  loss 2.0120  (3 ms/step)
+step   540  loss 2.5162  (3 ms/step)
+step   550  loss 2.2752  (4 ms/step)
+step   560  loss 2.0798  (3 ms/step)
+step   570  loss 2.3499  (3 ms/step)
+step   580  loss 2.3945  (3 ms/step)
+step   590  loss 2.1837  (3 ms/step)
+step   600  val loss 2.2590
+step   600  loss 2.1824  (3 ms/step)
+step   610  loss 2.2721  (3 ms/step)
+step   620  loss 1.8580  (3 ms/step)
+step   630  loss 2.4264  (3 ms/step)
+step   640  loss 2.6748  (4 ms/step)
+step   650  loss 2.0329  (4 ms/step)
+step   660  loss 1.9768  (3 ms/step)
+step   670  loss 2.3059  (3 ms/step)
+step   680  loss 2.0746  (4 ms/step)
+step   690  loss 2.0378  (3 ms/step)
+step   700  val loss 2.2236
+step   700  loss 1.9046  (3 ms/step)
+step   710  loss 2.1602  (3 ms/step)
+step   720  loss 2.6111  (3 ms/step)
+step   730  loss 1.8589  (4 ms/step)
+step   740  loss 2.1216  (3 ms/step)
+step   750  loss 1.9860  (3 ms/step)
+step   760  loss 2.0526  (3 ms/step)
+step   770  loss 2.0123  (4 ms/step)
+step   780  loss 2.1242  (3 ms/step)
+step   790  loss 1.9682  (3 ms/step)
+step   800  val loss 2.1757
+step   800  loss 2.1100  (3 ms/step)
+step   810  loss 1.9800  (3 ms/step)
+step   820  loss 2.1493  (3 ms/step)
+step   830  loss 2.2667  (3 ms/step)
+step   840  loss 2.5287  (3 ms/step)
+step   850  loss 2.1652  (3 ms/step)
+step   860  loss 2.0133  (3 ms/step)
+step   870  loss 2.1761  (4 ms/step)
+step   880  loss 1.9760  (4 ms/step)
+step   890  loss 2.1312  (3 ms/step)
+step   900  val loss 2.1520
+step   900  loss 2.3230  (3 ms/step)
+step   910  loss 2.1297  (4 ms/step)
+step   920  loss 2.2097  (3 ms/step)
+step   930  loss 2.2241  (3 ms/step)
+step   940  loss 2.2258  (3 ms/step)
+step   950  loss 1.9669  (3 ms/step)
+step   960  loss 1.7935  (3 ms/step)
+step   970  loss 2.0196  (4 ms/step)
+step   980  loss 2.2051  (4 ms/step)
+step   990  loss 1.8458  (3 ms/step)
+step  1000  val loss 2.1308
+step  1000  loss 2.0889  (3 ms/step)
+step  1010  loss 2.1435  (3 ms/step)
+step  1020  loss 2.1725  (3 ms/step)
+step  1030  loss 2.3242  (3 ms/step)
+step  1040  loss 2.4214  (3 ms/step)
+step  1050  loss 1.9274  (3 ms/step)
+step  1060  loss 2.0230  (4 ms/step)
+step  1070  loss 2.1834  (3 ms/step)
+step  1080  loss 2.1101  (3 ms/step)
+step  1090  loss 2.1046  (4 ms/step)
+step  1100  val loss 2.1241
+step  1100  loss 2.2868  (5 ms/step)
+step  1110  loss 2.3263  (4 ms/step)
+step  1120  loss 2.1600  (5 ms/step)
+step  1130  loss 1.8834  (3 ms/step)
+step  1140  loss 2.1788  (5 ms/step)
+step  1150  loss 2.2334  (4 ms/step)
+step  1160  loss 2.1428  (5 ms/step)
+step  1170  loss 2.0870  (3 ms/step)
+step  1180  loss 1.8117  (6 ms/step)
+step  1190  loss 1.9277  (3 ms/step)
+step  1200  val loss 2.1175
+step  1200  loss 2.0610  (3 ms/step)
+step  1210  loss 2.0845  (3 ms/step)
+step  1220  loss 2.0375  (3 ms/step)
+step  1230  loss 2.2726  (3 ms/step)
+step  1240  loss 2.3003  (3 ms/step)
+step  1250  loss 2.0136  (3 ms/step)
+step  1260  loss 2.0559  (4 ms/step)
+step  1270  loss 1.9359  (4 ms/step)
+step  1280  loss 1.8225  (3 ms/step)
+step  1290  loss 2.1436  (4 ms/step)
+step  1300  val loss 2.0936
+step  1300  loss 2.0451  (3 ms/step)
+step  1310  loss 1.9078  (4 ms/step)
+step  1320  loss 2.0450  (4 ms/step)
+step  1330  loss 1.8939  (4 ms/step)
+step  1340  loss 1.9324  (3 ms/step)
+step  1350  loss 2.0247  (4 ms/step)
+step  1360  loss 2.2934  (4 ms/step)
+step  1370  loss 2.0417  (4 ms/step)
+step  1380  loss 2.0060  (4 ms/step)
+step  1390  loss 2.0587  (3 ms/step)
+step  1400  val loss 2.0795
+step  1400  loss 2.0898  (3 ms/step)
+step  1410  loss 2.1982  (4 ms/step)
+step  1420  loss 2.0403  (4 ms/step)
+step  1430  loss 1.8083  (3 ms/step)
+step  1440  loss 2.3078  (3 ms/step)
+step  1450  loss 2.0494  (3 ms/step)
+step  1460  loss 2.1973  (3 ms/step)
+step  1470  loss 2.2019  (3 ms/step)
+step  1480  loss 1.8047  (3 ms/step)
+step  1490  loss 2.0344  (4 ms/step)
+step  1500  val loss 2.0727
+step  1500  loss 2.0311  (3 ms/step)
+step  1510  loss 2.0792  (3 ms/step)
+step  1520  loss 2.1074  (4 ms/step)
+step  1530  loss 2.0125  (4 ms/step)
+step  1540  loss 2.1771  (3 ms/step)
+step  1550  loss 2.1262  (4 ms/step)
+step  1560  loss 1.9775  (3 ms/step)
+step  1570  loss 1.9366  (4 ms/step)
+step  1580  loss 1.9681  (3 ms/step)
+step  1590  loss 2.0672  (4 ms/step)
+step  1600  val loss 2.0559
+step  1600  loss 1.9016  (3 ms/step)
+step  1610  loss 1.8244  (3 ms/step)
+step  1620  loss 2.0361  (3 ms/step)
+step  1630  loss 1.8487  (3 ms/step)
+step  1640  loss 1.9522  (3 ms/step)
+step  1650  loss 2.0717  (4 ms/step)
+step  1660  loss 2.1668  (4 ms/step)
+step  1670  loss 1.7812  (3 ms/step)
+step  1680  loss 2.5882  (4 ms/step)
+step  1690  loss 2.0975  (4 ms/step)
+step  1700  val loss 2.0557
+step  1700  loss 2.1700  (3 ms/step)
+step  1710  loss 2.0598  (3 ms/step)
+step  1720  loss 2.0232  (4 ms/step)
+step  1730  loss 1.9825  (3 ms/step)
+step  1740  loss 1.7460  (3 ms/step)
+step  1750  loss 1.9345  (3 ms/step)
+step  1760  loss 2.0794  (3 ms/step)
+step  1770  loss 1.9661  (4 ms/step)
+step  1780  loss 1.9270  (3 ms/step)
+step  1790  loss 2.0015  (4 ms/step)
+step  1800  val loss 2.0402
+step  1800  loss 2.2719  (3 ms/step)
+step  1810  loss 1.8081  (3 ms/step)
+step  1820  loss 2.1506  (4 ms/step)
+step  1830  loss 2.0307  (3 ms/step)
+step  1840  loss 2.3066  (3 ms/step)
+step  1850  loss 1.9420  (3 ms/step)
+step  1860  loss 1.8803  (3 ms/step)
+step  1870  loss 1.6951  (3 ms/step)
+step  1880  loss 2.0164  (3 ms/step)
+step  1890  loss 2.1582  (4 ms/step)
+step  1900  val loss 2.0546
+step  1900  loss 2.2690  (3 ms/step)
+step  1910  loss 2.1671  (3 ms/step)
+step  1920  loss 2.0045  (3 ms/step)
+step  1930  loss 2.0970  (4 ms/step)
+step  1940  loss 1.9385  (3 ms/step)
+step  1950  loss 1.9979  (3 ms/step)
+step  1960  loss 1.9473  (3 ms/step)
+step  1970  loss 1.7806  (4 ms/step)
+step  1980  loss 1.9299  (3 ms/step)
+step  1990  loss 1.8171  (3 ms/step)
+step  2000  val loss 2.0282
+step  2000  loss 2.2301  (3 ms/step)
+step  2010  loss 2.0662  (4 ms/step)
+step  2020  loss 1.6330  (3 ms/step)
+step  2030  loss 2.0375  (3 ms/step)
+step  2040  loss 2.1109  (4 ms/step)
+step  2050  loss 2.0295  (3 ms/step)
+step  2060  loss 2.1212  (3 ms/step)
+step  2070  loss 2.3420  (3 ms/step)
+step  2080  loss 1.7388  (3 ms/step)
+step  2090  loss 1.7902  (4 ms/step)
+step  2100  val loss 2.0335
+step  2100  loss 2.0083  (3 ms/step)
+step  2110  loss 1.8052  (3 ms/step)
+step  2120  loss 2.0360  (4 ms/step)
+step  2130  loss 2.1109  (4 ms/step)
+step  2140  loss 2.3155  (3 ms/step)
+step  2150  loss 2.1135  (4 ms/step)
+step  2160  loss 1.9034  (4 ms/step)
+step  2170  loss 2.0924  (4 ms/step)
+step  2180  loss 1.6968  (4 ms/step)
+step  2190  loss 2.4584  (4 ms/step)
+step  2200  val loss 2.0025
+step  2200  loss 1.9404  (3 ms/step)
+step  2210  loss 2.1696  (3 ms/step)
+step  2220  loss 1.8410  (3 ms/step)
+step  2230  loss 2.0864  (4 ms/step)
+step  2240  loss 2.0810  (3 ms/step)
+step  2250  loss 2.0150  (3 ms/step)
+step  2260  loss 2.3182  (4 ms/step)
+step  2270  loss 1.9298  (3 ms/step)
+step  2280  loss 1.8719  (4 ms/step)
+step  2290  loss 1.9047  (3 ms/step)
+step  2300  val loss 1.9953
+step  2300  loss 1.9897  (3 ms/step)
+step  2310  loss 1.9054  (3 ms/step)
+step  2320  loss 1.8984  (3 ms/step)
+step  2330  loss 2.0459  (3 ms/step)
+step  2340  loss 1.5952  (4 ms/step)
+step  2350  loss 2.0980  (4 ms/step)
+step  2360  loss 2.0143  (4 ms/step)
+step  2370  loss 1.7884  (4 ms/step)
+step  2380  loss 1.8900  (4 ms/step)
+step  2390  loss 2.1816  (3 ms/step)
+step  2400  val loss 1.9883
+step  2400  loss 1.9911  (3 ms/step)
+step  2410  loss 1.9601  (5 ms/step)
+step  2420  loss 1.5815  (4 ms/step)
+step  2430  loss 1.7808  (5 ms/step)
+step  2440  loss 2.0200  (3 ms/step)
+step  2450  loss 1.9969  (5 ms/step)
+step  2460  loss 1.9056  (4 ms/step)
+step  2470  loss 1.7660  (5 ms/step)
+step  2480  loss 1.9611  (4 ms/step)
+step  2490  loss 1.8494  (5 ms/step)
+step  2500  val loss 1.9701
+step  2500  loss 2.0935  (3 ms/step)
+step  2510  loss 1.8501  (4 ms/step)
+step  2520  loss 2.0061  (4 ms/step)
+step  2530  loss 1.8611  (3 ms/step)
+step  2540  loss 1.8347  (3 ms/step)
+step  2550  loss 1.8255  (3 ms/step)
+step  2560  loss 1.8288  (4 ms/step)
+step  2570  loss 1.8839  (3 ms/step)
+step  2580  loss 1.7067  (3 ms/step)
+step  2590  loss 2.0842  (3 ms/step)
+step  2600  val loss 1.9515
+step  2600  loss 1.8183  (3 ms/step)
+step  2610  loss 1.7314  (3 ms/step)
+step  2620  loss 2.1725  (3 ms/step)
+step  2630  loss 1.7658  (4 ms/step)
+step  2640  loss 2.0833  (3 ms/step)
+step  2650  loss 2.0442  (3 ms/step)
+step  2660  loss 1.8203  (3 ms/step)
+step  2670  loss 1.8710  (3 ms/step)
+step  2680  loss 1.7885  (3 ms/step)
+step  2690  loss 1.8484  (3 ms/step)
+step  2700  val loss 1.9504
+step  2700  loss 1.6742  (3 ms/step)
+step  2710  loss 2.3489  (3 ms/step)
+step  2720  loss 1.9788  (4 ms/step)
+step  2730  loss 1.6023  (3 ms/step)
+step  2740  loss 1.8444  (3 ms/step)
+step  2750  loss 2.0123  (4 ms/step)
+step  2760  loss 2.0231  (3 ms/step)
+step  2770  loss 1.8044  (3 ms/step)
+step  2780  loss 1.8776  (3 ms/step)
+step  2790  loss 1.9842  (3 ms/step)
+step  2800  val loss 1.9524
+step  2800  loss 1.8898  (3 ms/step)
+step  2810  loss 1.8483  (3 ms/step)
+step  2820  loss 1.9400  (4 ms/step)
+step  2830  loss 1.8697  (4 ms/step)
+step  2840  loss 1.9506  (3 ms/step)
+step  2850  loss 1.9988  (3 ms/step)
+step  2860  loss 2.0303  (4 ms/step)
+step  2870  loss 2.1547  (4 ms/step)
+step  2880  loss 1.8017  (3 ms/step)
+step  2890  loss 1.6388  (3 ms/step)
+step  2900  val loss 1.9472
+step  2900  loss 1.6262  (3 ms/step)
+step  2910  loss 2.0784  (4 ms/step)
+step  2920  loss 2.0123  (3 ms/step)
+step  2930  loss 1.8372  (3 ms/step)
+step  2940  loss 1.6250  (3 ms/step)
+step  2950  loss 2.0004  (3 ms/step)
+step  2960  loss 1.9745  (3 ms/step)
+step  2970  loss 2.0061  (3 ms/step)
+step  2980  loss 2.0945  (4 ms/step)
+step  2990  loss 1.9661  (4 ms/step)
+step  3000  val loss 1.9222
+step  3000  loss 1.4412  (3 ms/step)
+step  3010  loss 1.5421  (4 ms/step)
+step  3020  loss 2.0173  (3 ms/step)
+step  3030  loss 1.7248  (4 ms/step)
+step  3040  loss 1.9278  (3 ms/step)
+step  3050  loss 1.8384  (3 ms/step)
+step  3060  loss 1.6912  (3 ms/step)
+step  3070  loss 1.7956  (3 ms/step)
+step  3080  loss 1.9379  (3 ms/step)
+step  3090  loss 1.6275  (4 ms/step)
+step  3100  val loss 1.9074
+step  3100  loss 1.7335  (3 ms/step)
+step  3110  loss 1.8935  (4 ms/step)
+step  3120  loss 1.8825  (3 ms/step)
+step  3130  loss 1.9309  (4 ms/step)
+step  3140  loss 1.8620  (3 ms/step)
+step  3150  loss 1.9298  (4 ms/step)
+step  3160  loss 1.6484  (3 ms/step)
+step  3170  loss 1.5581  (3 ms/step)
+step  3180  loss 1.9501  (3 ms/step)
+step  3190  loss 1.7339  (4 ms/step)
+step  3200  val loss 1.9160
+step  3200  loss 2.0094  (3 ms/step)
+step  3210  loss 1.9074  (3 ms/step)
+step  3220  loss 1.8787  (3 ms/step)
+step  3230  loss 1.9572  (3 ms/step)
+step  3240  loss 1.9728  (4 ms/step)
+step  3250  loss 1.9204  (4 ms/step)
+step  3260  loss 1.8118  (3 ms/step)
+step  3270  loss 2.1243  (4 ms/step)
+step  3280  loss 1.7444  (3 ms/step)
+step  3290  loss 1.8421  (3 ms/step)
+step  3300  val loss 1.9127
+step  3300  loss 1.8422  (3 ms/step)
+step  3310  loss 1.9537  (4 ms/step)
+step  3320  loss 2.1711  (4 ms/step)
+step  3330  loss 1.7118  (3 ms/step)
+step  3340  loss 1.7751  (3 ms/step)
+step  3350  loss 1.7757  (3 ms/step)
+step  3360  loss 2.1479  (3 ms/step)
+step  3370  loss 1.5716  (4 ms/step)
+step  3380  loss 2.2633  (3 ms/step)
+step  3390  loss 2.2438  (4 ms/step)
+step  3400  val loss 1.9080
+step  3400  loss 1.7588  (5 ms/step)
+step  3410  loss 1.7034  (3 ms/step)
+step  3420  loss 2.3243  (5 ms/step)
+step  3430  loss 2.0808  (4 ms/step)
+step  3440  loss 1.7099  (5 ms/step)
+step  3450  loss 1.5759  (3 ms/step)
+step  3460  loss 2.0263  (5 ms/step)
+step  3470  loss 1.9178  (4 ms/step)
+step  3480  loss 1.9711  (5 ms/step)
+step  3490  loss 2.0312  (4 ms/step)
+step  3500  val loss 1.9151
+step  3500  loss 1.8457  (3 ms/step)
+step  3510  loss 1.8323  (3 ms/step)
+step  3520  loss 1.7160  (3 ms/step)
+step  3530  loss 1.6719  (3 ms/step)
+step  3540  loss 1.9528  (3 ms/step)
+step  3550  loss 2.0894  (3 ms/step)
+step  3560  loss 2.0901  (3 ms/step)
+step  3570  loss 1.6426  (3 ms/step)
+step  3580  loss 1.8309  (4 ms/step)
+step  3590  loss 1.6888  (3 ms/step)
+step  3600  val loss 1.8966
+step  3600  loss 1.8750  (3 ms/step)
+step  3610  loss 1.9470  (3 ms/step)
+step  3620  loss 2.1512  (4 ms/step)
+step  3630  loss 1.7388  (4 ms/step)
+step  3640  loss 1.6872  (3 ms/step)
+step  3650  loss 1.6900  (3 ms/step)
+step  3660  loss 1.9658  (4 ms/step)
+step  3670  loss 2.1144  (3 ms/step)
+step  3680  loss 1.7228  (3 ms/step)
+step  3690  loss 2.1668  (3 ms/step)
+step  3700  val loss 1.8811
+step  3700  loss 1.9172  (3 ms/step)
+step  3710  loss 1.7310  (4 ms/step)
+step  3720  loss 2.0265  (4 ms/step)
+step  3730  loss 1.9569  (3 ms/step)
+step  3740  loss 1.5708  (4 ms/step)
+step  3750  loss 1.7343  (4 ms/step)
+step  3760  loss 1.7543  (3 ms/step)
+step  3770  loss 2.0710  (4 ms/step)
+step  3780  loss 1.9387  (3 ms/step)
+step  3790  loss 1.8401  (4 ms/step)
+step  3800  val loss 1.8992
+step  3800  loss 2.1624  (3 ms/step)
+step  3810  loss 1.9887  (3 ms/step)
+step  3820  loss 1.8563  (3 ms/step)
+step  3830  loss 1.4837  (3 ms/step)
+step  3840  loss 1.6046  (3 ms/step)
+step  3850  loss 1.9711  (3 ms/step)
+step  3860  loss 2.1183  (4 ms/step)
+step  3870  loss 1.6756  (3 ms/step)
+step  3880  loss 1.7850  (4 ms/step)
+step  3890  loss 1.6597  (4 ms/step)
+step  3900  val loss 1.8842
+step  3900  loss 1.7664  (3 ms/step)
+step  3910  loss 1.9544  (4 ms/step)
+step  3920  loss 1.7348  (4 ms/step)
+step  3930  loss 1.7396  (3 ms/step)
+step  3940  loss 1.8201  (4 ms/step)
+step  3950  loss 1.8114  (4 ms/step)
+step  3960  loss 1.7770  (4 ms/step)
+step  3970  loss 1.7655  (4 ms/step)
+step  3980  loss 2.2216  (3 ms/step)
+step  3990  loss 1.6769  (3 ms/step)
+step  4000  val loss 1.8677
+step  4000  loss 2.0601  (3 ms/step)
+step  4010  loss 1.6703  (3 ms/step)
+step  4020  loss 1.5430  (4 ms/step)
+step  4030  loss 1.6368  (3 ms/step)
+step  4040  loss 1.9052  (3 ms/step)
+step  4050  loss 1.6208  (4 ms/step)
+step  4060  loss 1.6459  (4 ms/step)
+step  4070  loss 1.8162  (3 ms/step)
+step  4080  loss 2.0055  (4 ms/step)
+step  4090  loss 1.8733  (3 ms/step)
+step  4100  val loss 1.8487
+step  4100  loss 1.8257  (3 ms/step)
+step  4110  loss 2.3197  (4 ms/step)
+step  4120  loss 1.5316  (4 ms/step)
+step  4130  loss 1.8528  (4 ms/step)
+step  4140  loss 1.8735  (4 ms/step)
+step  4150  loss 1.7969  (4 ms/step)
+step  4160  loss 1.7273  (4 ms/step)
+step  4170  loss 1.9496  (3 ms/step)
+step  4180  loss 2.2069  (4 ms/step)
+step  4190  loss 1.7378  (3 ms/step)
+step  4200  val loss 1.8473
+step  4200  loss 2.1451  (3 ms/step)
+step  4210  loss 2.0392  (3 ms/step)
+step  4220  loss 1.6876  (4 ms/step)
+step  4230  loss 1.9441  (4 ms/step)
+step  4240  loss 1.4859  (3 ms/step)
+step  4250  loss 1.9878  (4 ms/step)
+step  4260  loss 1.8354  (3 ms/step)
+step  4270  loss 1.8932  (4 ms/step)
+step  4280  loss 1.6737  (3 ms/step)
+step  4290  loss 1.6257  (3 ms/step)
+step  4300  val loss 1.8517
+step  4300  loss 1.5147  (3 ms/step)
+step  4310  loss 1.8828  (4 ms/step)
+step  4320  loss 1.8401  (3 ms/step)
+step  4330  loss 1.6972  (3 ms/step)
+step  4340  loss 1.7355  (4 ms/step)
+step  4350  loss 1.5877  (4 ms/step)
+step  4360  loss 1.6110  (4 ms/step)
+step  4370  loss 1.8034  (3 ms/step)
+step  4380  loss 2.0276  (4 ms/step)
+step  4390  loss 1.5867  (3 ms/step)
+step  4400  val loss 1.8392
+step  4400  loss 1.6088  (3 ms/step)
+step  4410  loss 2.0573  (4 ms/step)
+step  4420  loss 1.4871  (3 ms/step)
+step  4430  loss 1.6111  (3 ms/step)
+step  4440  loss 1.6076  (3 ms/step)
+step  4450  loss 2.1209  (3 ms/step)
+step  4460  loss 1.5431  (3 ms/step)
+step  4470  loss 1.8000  (3 ms/step)
+step  4480  loss 1.8093  (4 ms/step)
+step  4490  loss 1.6235  (4 ms/step)
+step  4500  val loss 1.8457
+step  4500  loss 1.4397  (3 ms/step)
+step  4510  loss 1.7071  (3 ms/step)
+step  4520  loss 1.7446  (3 ms/step)
+step  4530  loss 1.8245  (3 ms/step)
+step  4540  loss 1.7597  (4 ms/step)
+step  4550  loss 1.7497  (3 ms/step)
+step  4560  loss 1.9748  (4 ms/step)
+step  4570  loss 1.9943  (4 ms/step)
+step  4580  loss 1.5542  (3 ms/step)
+step  4590  loss 1.6323  (4 ms/step)
+step  4600  val loss 1.8270
+step  4600  loss 1.5479  (3 ms/step)
+step  4610  loss 1.7606  (4 ms/step)
+step  4620  loss 1.6590  (4 ms/step)
+step  4630  loss 1.8748  (3 ms/step)
+step  4640  loss 1.5502  (3 ms/step)
+step  4650  loss 2.0227  (3 ms/step)
+step  4660  loss 1.9113  (3 ms/step)
+step  4670  loss 2.0424  (3 ms/step)
+step  4680  loss 1.8550  (3 ms/step)
+step  4690  loss 1.8061  (3 ms/step)
+step  4700  val loss 1.8421
+step  4700  loss 1.8305  (3 ms/step)
+step  4710  loss 2.0795  (3 ms/step)
+step  4720  loss 2.0149  (3 ms/step)
+step  4730  loss 2.0309  (4 ms/step)
+step  4740  loss 1.5284  (3 ms/step)
+step  4750  loss 2.1503  (3 ms/step)
+step  4760  loss 2.1445  (4 ms/step)
+step  4770  loss 1.8073  (3 ms/step)
+step  4780  loss 1.6208  (3 ms/step)
+step  4790  loss 1.7324  (4 ms/step)
+step  4800  val loss 1.8270
+step  4800  loss 1.8966  (3 ms/step)
+step  4810  loss 1.7272  (3 ms/step)
+step  4820  loss 1.9022  (3 ms/step)
+step  4830  loss 1.8799  (4 ms/step)
+step  4840  loss 1.5375  (3 ms/step)
+step  4850  loss 1.7293  (4 ms/step)
+step  4860  loss 1.6374  (3 ms/step)
+step  4870  loss 1.4799  (3 ms/step)
+step  4880  loss 1.9693  (4 ms/step)
+step  4890  loss 1.5135  (4 ms/step)
+step  4900  val loss 1.8319
+step  4900  loss 1.9894  (3 ms/step)
+step  4910  loss 1.7914  (4 ms/step)
+step  4920  loss 1.6634  (4 ms/step)
+step  4930  loss 1.6627  (3 ms/step)
+step  4940  loss 1.5657  (4 ms/step)
+step  4950  loss 1.7811  (4 ms/step)
+step  4960  loss 2.2109  (3 ms/step)
+step  4970  loss 1.7668  (3 ms/step)
+step  4980  loss 1.8119  (3 ms/step)
+step  4990  loss 1.4207  (4 ms/step)
+step  5000  val loss 1.8105
+
+--- greedy sample ---
+ROMEO:
+I would thee the the the reare the the forth and therefore the be the here of the with a there to the see the forth and therefore the be the here of the with a there to the see the forth and therefore the be the here of the with a there to the see the forth and therefore the be the here of the with 
+---------------------
+wrote results_neethi/lm_full/tp_n8.json

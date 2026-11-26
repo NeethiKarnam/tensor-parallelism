@@ -1,0 +1,7 @@
+test,max_abs_d_loss,max_abs_d_grad,max_abs_d_dX,result
+"1 block, N=1",0.000e+00,0.000e+00,0.000e+00,PASS
+"1 block, N=2",0.000e+00,5.588e-09,1.863e-09,PASS
+"1 block, N=4",0.000e+00,7.451e-09,1.863e-09,PASS
+"1 block, N=8",0.000e+00,7.451e-09,2.095e-09,PASS
+2 blocks (worst N),1.192e-07,1.304e-08,2.794e-09,PASS
+5 Adam steps (worst N),4.768e-07,9.225e-07,,PASS

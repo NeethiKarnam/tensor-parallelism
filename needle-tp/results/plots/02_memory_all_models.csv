@@ -1,0 +1,13 @@
+model,N,peak_model_GB,status
+"1 block, h=8192",1,4.545,ok
+"1 block, h=8192",2,2.399,ok
+"1 block, h=8192",4,1.458,ok
+"1 block, h=8192",8,0.860,ok
+"1 block, h=16384",1,,OOM
+"1 block, h=16384",2,4.874,ok
+"1 block, h=16384",4,2.701,ok
+"1 block, h=16384",8,1.458,ok
+"4 blocks, h=16384",1,,OOM
+"4 blocks, h=16384",2,,OOM
+"4 blocks, h=16384",4,6.281,ok
+"4 blocks, h=16384",8,3.232,ok
