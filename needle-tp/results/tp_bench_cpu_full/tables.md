@@ -1,0 +1,106 @@
+# Tensor-parallel benchmark tables
+
+Hardware: cpu (cpu); config d=4096, h=8192, blocks=1, batch=128, Adam, fp32. Machines in the N-rank runs: N=1: 1, N=2: 1, N=4: 1, N=8: 1
+
+## Memory
+
+| N | Params per rank | Predicted per rank (GB) | Measured peak per rank (GB) | Fits 8 GB GPU? |
+|---|---|---|---|---|
+| 1 | 67.1 M | 1.11 | 2.67 (total 2.71 incl. CUDA context) | n/a (cpu run) |
+| 2 | 33.6 M | 0.56 | 1.63 (total 1.68 incl. CUDA context) | n/a (cpu run) |
+| 4 | 16.8 M | 0.29 | 0.92 (total 0.97 incl. CUDA context) | n/a (cpu run) |
+| 8 | 8.4 M | 0.15 | 0.65 (total 0.70 incl. CUDA context) | n/a (cpu run) |
+
+Predicted = 16 B/param (weights, grads, Adam m and v) + activation estimate (Needle keeps `.grad` on every graph node, so saved activations count twice). GB = 1e9 bytes; an 8 GB card has 8.59e9 B. Measured = NVML peak of this process minus the CUDA-context baseline.
+
+## Correctness
+
+| Test | N | max abs Δ loss | max abs Δ gradient | max abs Δ dX | Pass (≤ 1e-5) |
+|---|---|---|---|---|---|
+| One TPMLP block | 1 | 0.0e+00 | 0.0e+00 | 0.0e+00 | PASS |
+| One TPMLP block | 2 | 0.0e+00 | 9.3e-09 | 1.9e-09 | PASS |
+| One TPMLP block | 4 | 0.0e+00 | 7.5e-09 | 1.9e-09 | PASS |
+| One TPMLP block | 8 | 0.0e+00 | 7.5e-09 | 1.9e-09 | PASS |
+| Two stacked blocks | 1/2/4/8 | 1.2e-07 | 1.2e-08 | 2.8e-09 | PASS |
+| 5 Adam steps (worst step) | 1/2/4/8 | 3.6e-07 | 7.7e-07 | n/a | PASS |
+
+Run on cpu (cpu), d=64, h=256, B=16, loss = mean squared error. Worst gradient error relative to the largest gradient entry: 1.6e-05. Worst case over all ranks. Δ = TP result vs. the dense model built from the same weights.
+
+## Throughput
+
+| N | Machines | Batch | Median step (ms) | Samples/s | Speedup vs. N=1 | Parallel efficiency |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 128 | 16,297.7 | 7.9 | 1.00 | 100 % |
+| 2 | 1 | 128 | 6,305.7 | 20.3 | 2.58 | 129 % |
+| 4 | 1 | 128 | 2,454.1 | 52.2 | 6.64 | 166 % |
+| 8 | 1 | 128 | 1,360.9 | 94.1 | 11.98 | 150 % |
+
+Speedup baseline: 16,297.7 ms, measured at N=1.
+
+Supplement: one-block results. Successful-run timings are measured; speedup requires a successful one-block N=1 baseline.
+
+| N | Machines | Batch | Median step (ms) | Samples/s | Speedup vs. N=1 | Parallel efficiency |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 128 | 16,297.7 | 7.9 | 1.00 | 100 % |
+| 2 | 1 | 128 | 6,305.7 | 20.3 | 2.58 | 129 % |
+| 4 | 1 | 128 | 2,454.1 | 52.2 | 6.64 | 166 % |
+| 8 | 1 | 128 | 1,360.9 | 94.1 | 11.98 | 150 % |
+
+## Communication time
+
+| N | Compute (ms) | GPU→host (ms) | All-reduce (ms) | Host→GPU (ms) | Step total (ms) | Comm share (%) | All-reduces per step | Bytes per all-reduce |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 16,297.7 | 0 | 0 | 0 | 16,297.7 | 0 | 0 | n/a |
+| 2 | 6,294.0 | 0.26 | 13.86 | 0.27 | 6,305.7 | 0.2 % | 1 | 2.10 MB (= 128 × 4096 × 4) |
+| 4 | 2,448.5 | 0.26 | 26.59 | 0.23 | 2,454.1 | 1.1 % | 1 | 2.10 MB (= 128 × 4096 × 4) |
+| 8 | 1,337.7 | 0.28 | 30.85 | 0.42 | 1,360.9 | 2.3 % | 1 | 2.10 MB (= 128 × 4096 × 4) |
+
+Medians over timed steps, slowest rank. Compute = step − comm (queued kernels are charged to compute because all_reduce is preceded by a device sync). All-reduces per step are measured: block 0's input does not require a gradient, so autograd detaches its `f` and only 2·blocks − 1 fire (1 for 1 blocks, not 2). `* ` = N=1 row estimated from the 1-block run.
+
+## Scaling (weak: h = 4096·N, per-rank work constant)
+
+| N | h | Throughput (samples/s × N, model-size-normalized) | Raw samples/s | Ideal (N × throughput₁) | Efficiency |
+|---|---|---|---|---|---|
+| 1 | 4096 | 18.3 | 18.3 | 18.3 | 100 % |
+| 2 | 8192 | 45.3 | 22.7 | 36.6 | 124 % |
+| 4 | 16384 | 82.0 | 20.5 | 73.3 | 112 % |
+| 8 | 32768 | 97.3 | 12.2 | 146.5 | 66 % |
+
+Raw samples/s is flat under perfect weak scaling, because the model grows N-fold while each rank's work stays constant. The normalized column multiplies by N (model FLOPs per sample grow ∝ h), which makes `Ideal = N × throughput₁` correct, and efficiency = raw₍N₎ / raw₍1₎ = step₁ / step_N.
+
+## All-reduce latency
+
+### Host-side MPI Allreduce only (network + MPI)
+
+| Message size | Floats | N=2 latency (µs) | N=4 latency (µs) | N=8 latency (µs) | N=2 algo BW (GB/s) | N=4 algo BW (GB/s) | N=8 algo BW (GB/s) |
+|---|---|---|---|---|---|---|---|
+| 4 B | 1 | 0.9 | 1.4 | 2.9 | 0.005 | 0.003 | 0.001 |
+| 1 KB | 256 | 2.0 | 3.5 | 7.4 | 0.523 | 0.296 | 0.139 |
+| 64 KB | 16,384 | 15.3 | 30.5 | 51.5 | 4.286 | 2.152 | 1.273 |
+| 1 MB | 262,144 | 130.3 | 254.5 | 561.8 | 8.049 | 4.120 | 1.867 |
+| 16 MB | 4,194,304 | 2,445.8 | 5,240.1 | 11,323.5 | 6.860 | 3.202 | 1.482 |
+| B × d × 4 | 524,288 | 409.1 | 682.6 | 1,428.3 | 5.126 | 3.072 | 1.468 |
+
+### End-to-end `distributed.all_reduce` on a device array (GPU→host + MPI + host→GPU)
+
+| Message size | Floats | N=2 latency (µs) | N=4 latency (µs) | N=8 latency (µs) | N=2 algo BW (GB/s) | N=4 algo BW (GB/s) | N=8 algo BW (GB/s) |
+|---|---|---|---|---|---|---|---|
+| 4 B | 1 | 6.8 | 7.5 | 15.1 | 0.001 | 0.001 | 0.000 |
+| 1 KB | 256 | 8.0 | 9.7 | 20.0 | 0.127 | 0.106 | 0.051 |
+| 64 KB | 16,384 | 24.2 | 39.7 | 80.0 | 2.712 | 1.650 | 0.819 |
+| 1 MB | 262,144 | 313.1 | 410.1 | 893.1 | 3.349 | 2.557 | 1.174 |
+| 16 MB | 4,194,304 | 7,431.3 | 11,559.7 | 17,924.6 | 2.258 | 1.451 | 0.936 |
+| B × d × 4 | 524,288 | 1,063.8 | 1,528.3 | 3,122.9 | 1.971 | 1.372 | 0.672 |
+
+Algo BW = message bytes / latency. Median over 30–200 iterations after 10 warm-ups, slowest rank. The last row is the message the model actually sends.
+
+## Utilization
+
+| N | FLOPs per GPU per step | Step time (s) | Achieved TFLOPS | % of peak (10 TFLOPS) | GPU util (%) |
+|---|---|---|---|---|---|
+| 1 | 52 GFLOP | 16.298 | 0.003 | 0.0 % | — |
+| 2 | 26 GFLOP | 6.306 | 0.004 | 0.0 % | — |
+| 4 | 13 GFLOP | 2.454 | 0.005 | 0.1 % | — |
+| 8 | 6 GFLOP | 1.361 | 0.005 | 0.0 % | — |
+
+FLOPs = 12·B·d·h per block (fwd + bwd ≈ 3 × fwd), ÷ N, × blocks. Achieved TFLOPS counts the whole step including communication. GPU util is NVML's utilization.gpu (fraction of time a kernel was running, not SM occupancy), averaged over the timed steps. All rows use the selected headline configuration.

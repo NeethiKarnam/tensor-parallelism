@@ -1,0 +1,72 @@
+{
+ "world_size": 2,
+ "device": "cpu",
+ "gpu": "cpu",
+ "hosts": [
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local"
+ ],
+ "machines": 1,
+ "command": "apps/benchmarks/bench_tp.py scaling --h-base 4096 --device cpu --out-dir results/tp_bench_cpu_full --d 4096 --h 8192 --blocks 1 --batch 128 --steps 10 --warmup 3",
+ "time": "2026-11-23 14:42:35",
+ "config": {
+  "d": 4096,
+  "h": 8192,
+  "blocks": 1,
+  "batch": 128,
+  "steps": 10,
+  "warmup": 3,
+  "optimizer": "adam"
+ },
+ "predicted_params_per_rank": 33562624,
+ "predicted_state_bytes": 537001984,
+ "predicted_activation_bytes": 25165824,
+ "mem_mode": "none",
+ "gpu_total_bytes": null,
+ "status": "ok",
+ "params_per_rank": 33562624,
+ "peak_total_bytes": 1853440000,
+ "peak_model_bytes": 1806516224,
+ "baseline_bytes": 46923776,
+ "step_ms": 5649.976083310321,
+ "compute_ms": 5648.616395890713,
+ "d2h_ms": 0.20262529142200947,
+ "allreduce_ms": 11.696874629706144,
+ "h2d_ms": 0.183499651029706,
+ "comm_ms": 11.956895468756557,
+ "calls_per_step": 1.0,
+ "bytes_per_call": 2097152.0,
+ "step_ms_all": [
+  5511.075667105615,
+  6013.676207978278,
+  5387.65758369118,
+  6270.372624974698,
+  5701.197249814868,
+  5713.9905001968145,
+  5570.485499687493,
+  5692.036749795079,
+  5538.354624994099,
+  5461.154500022531
+ ],
+ "final_loss": 0.9298408031463623,
+ "gpu_util_pct": null,
+ "flops_per_gpu_step": 25769803776.0,
+ "per_rank": [
+  {
+   "status": "ok",
+   "peak_total_bytes": 1853440000,
+   "peak_model_bytes": 1806516224,
+   "step_ms": 5631.261124741286,
+   "comm_ms": 11.956895468756557,
+   "gpu_util_pct": null
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1849556992,
+   "peak_model_bytes": 1802240000,
+   "step_ms": 5649.976083310321,
+   "comm_ms": 1.098104054108262,
+   "gpu_util_pct": null
+  }
+ ]
+}

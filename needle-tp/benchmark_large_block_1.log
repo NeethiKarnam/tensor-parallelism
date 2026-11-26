@@ -1,0 +1,107 @@
+# Tensor-parallel benchmark tables
+
+Hardware: NVIDIA GeForce RTX 2080 (cuda); config d=4096, h=16384, blocks=1, batch=128, Adam, fp32. Machines in the N-rank runs: N=1: 1, N=2: 2, N=4: 4, N=8: 8
+
+## Memory
+
+| N | Params per rank | Predicted per rank (GB) | Measured peak per rank (GB) | Fits 8 GB GPU? |
+|---|---|---|---|---|
+| 1 | 134.2 M | 2.21 | OOM (reached 6.70 GB) | No |
+| 2 | 67.1 M | 1.11 | 4.87 (total 4.99 incl. CUDA context) | Yes |
+| 4 | 33.6 M | 0.56 | 2.70 (total 2.82 incl. CUDA context) | Yes |
+| 8 | 16.8 M | 0.29 | 1.46 (total 1.57 incl. CUDA context) | Yes |
+
+Predicted = 16 B/param (weights, grads, Adam m and v) + activation estimate (Needle keeps `.grad` on every graph node, so saved activations count twice). GB = 1e9 bytes; an 8 GB card has 8.59e9 B. Measured = NVML peak of this process minus the CUDA-context baseline. Memory source: nvidia-smi (`nvml-device` = whole GPU, so other users' memory would be included).
+
+## Correctness
+
+| Test | N | max abs Δ loss | max abs Δ gradient | max abs Δ dX | Pass (≤ 1e-5) |
+|---|---|---|---|---|---|
+| One TPMLP block | 1 | 0.0e+00 | 0.0e+00 | 0.0e+00 | PASS |
+| One TPMLP block | 2 | 0.0e+00 | 5.6e-09 | 1.9e-09 | PASS |
+| One TPMLP block | 4 | 0.0e+00 | 7.5e-09 | 1.9e-09 | PASS |
+| One TPMLP block | 8 | 0.0e+00 | 7.5e-09 | 2.1e-09 | PASS |
+| Two stacked blocks | 1/2/4/8 | 1.2e-07 | 1.3e-08 | 2.8e-09 | PASS |
+| 5 Adam steps (worst step) | 1/2/4/8 | 4.8e-07 | 9.2e-07 | n/a | PASS |
+
+Run on cuda (NVIDIA GeForce RTX 2080), d=64, h=256, B=16, loss = mean squared error. Worst gradient error relative to the largest gradient entry: 2.0e-05. Worst case over all ranks. Δ = TP result vs. the dense model built from the same weights.
+
+## Throughput
+
+| N | Machines | Batch | Median step (ms) | Samples/s | Speedup vs. N=1 | Parallel efficiency |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 128 | OOM | — | — | — |
+| 2 | 2 | 128 | 154.9 | 826.5 | — | — |
+| 4 | 4 | 128 | 258.8 | 494.5 | — | — |
+| 8 | 8 | 128 | 113.8 | 1,125.1 | — | — |
+
+Speedup and efficiency are unavailable: no successful measured N=1 baseline.
+
+Supplement: one-block results. Successful-run timings are measured; speedup requires a successful one-block N=1 baseline.
+
+| N | Machines | Batch | Median step (ms) | Samples/s | Speedup vs. N=1 | Parallel efficiency |
+|---|---|---|---|---|---|---|
+| 1 | — | 128 | — | — | — | — |
+| 2 | 2 | 128 | 154.9 | 826.5 | — | — |
+| 4 | 4 | 128 | 258.8 | 494.5 | — | — |
+| 8 | 8 | 128 | 113.8 | 1,125.1 | — | — |
+
+## Communication time
+
+| N | Compute (ms) | GPU→host (ms) | All-reduce (ms) | Host→GPU (ms) | Step total (ms) | Comm share (%) | All-reduces per step | Bytes per all-reduce |
+|---|---|---|---|---|---|---|---|---|
+| 1 | — | — | — | — | — | — | — | B × 4096 × 4 |
+| 2 | 134.9 | 0.32 | 19.50 | 0.27 | 154.9 | 13.0 % | 1 | 2.10 MB (= 128 × 4096 × 4) |
+| 4 | 207.7 | 0.33 | 50.80 | 0.37 | 258.8 | 19.9 % | 1 | 2.10 MB (= 128 × 4096 × 4) |
+| 8 | 58.0 | 0.32 | 56.16 | 0.24 | 113.8 | 49.9 % | 1 | 2.10 MB (= 128 × 4096 × 4) |
+
+Medians over timed steps, slowest rank. Compute = step − comm (queued kernels are charged to compute because all_reduce is preceded by a device sync). All-reduces per step are measured: block 0's input does not require a gradient, so autograd detaches its `f` and only 2·blocks − 1 fire (1 for 1 blocks, not 2). `* ` = N=1 row estimated from the 1-block run.
+
+## Scaling (weak: h = 4096·N, per-rank work constant)
+
+| N | h | Throughput (samples/s × N, model-size-normalized) | Raw samples/s | Ideal (N × throughput₁) | Efficiency |
+|---|---|---|---|---|---|
+| 1 | 4096 | 443.8 | 443.8 | 443.8 | 100 % |
+| 2 | 8192 | — | — | — | — |
+| 4 | 16384 | — | — | — | — |
+| 8 | 32768 | — | — | — | — |
+
+Raw samples/s is flat under perfect weak scaling, because the model grows N-fold while each rank's work stays constant. The normalized column multiplies by N (model FLOPs per sample grow ∝ h), which makes `Ideal = N × throughput₁` correct, and efficiency = raw₍N₎ / raw₍1₎ = step₁ / step_N.
+
+## All-reduce latency
+
+### Host-side MPI Allreduce only (network + MPI)
+
+| Message size | Floats | N=2 latency (µs) | N=4 latency (µs) | N=8 latency (µs) | N=2 algo BW (GB/s) | N=4 algo BW (GB/s) | N=8 algo BW (GB/s) |
+|---|---|---|---|---|---|---|---|
+| 4 B | 1 | 9,918.7 | 223.5 | 228.1 | 0.000 | 0.000 | 0.000 |
+| 1 KB | 256 | 9,916.2 | 230.1 | 287.3 | 0.000 | 0.004 | 0.004 |
+| 64 KB | 16,384 | 10,306.5 | 1,808.8 | 2,326.8 | 0.006 | 0.036 | 0.028 |
+| 1 MB | 262,144 | 34,229.7 | 30,207.8 | 31,348.7 | 0.031 | 0.035 | 0.033 |
+| 16 MB | 4,194,304 | 260,171.8 | 292,161.1 | 330,787.0 | 0.064 | 0.057 | 0.051 |
+| B × d × 4 | 524,288 | 35,112.2 | 47,247.7 | 51,792.9 | 0.060 | 0.044 | 0.040 |
+
+### End-to-end `distributed.all_reduce` on a device array (GPU→host + MPI + host→GPU)
+
+| Message size | Floats | N=2 latency (µs) | N=4 latency (µs) | N=8 latency (µs) | N=2 algo BW (GB/s) | N=4 algo BW (GB/s) | N=8 algo BW (GB/s) |
+|---|---|---|---|---|---|---|---|
+| 4 B | 1 | 9,935.4 | 2,077.9 | 304.2 | 0.000 | 0.000 | 0.000 |
+| 1 KB | 256 | 9,935.1 | 2,100.8 | 346.5 | 0.000 | 0.000 | 0.003 |
+| 64 KB | 16,384 | 10,186.5 | 3,189.1 | 2,413.3 | 0.006 | 0.021 | 0.027 |
+| 1 MB | 262,144 | 34,435.6 | 20,680.4 | 26,186.7 | 0.030 | 0.051 | 0.040 |
+| 16 MB | 4,194,304 | 251,274.3 | 249,409.1 | 376,250.2 | 0.067 | 0.067 | 0.045 |
+| B × d × 4 | 524,288 | 39,967.3 | 47,689.2 | 50,117.3 | 0.052 | 0.044 | 0.042 |
+
+Algo BW = message bytes / latency. Median over 30–200 iterations after 10 warm-ups, slowest rank. The last row is the message the model actually sends.
+
+## Utilization
+
+| N | FLOPs per GPU per step | Step time (s) | Achieved TFLOPS | % of peak (10 TFLOPS) | GPU util (%) |
+|---|---|---|---|---|---|
+| 1 | 103 GFLOP | — | — | — | — |
+| 2 | 52 GFLOP | 0.155 | 0.333 | 3.3 % | 58 |
+| 4 | 26 GFLOP | 0.259 | 0.100 | 1.0 % | 66 |
+| 8 | 13 GFLOP | 0.114 | 0.113 | 1.1 % | 20 |
+
+FLOPs = 12·B·d·h per block (fwd + bwd ≈ 3 × fwd), ÷ N, × blocks. Achieved TFLOPS counts the whole step including communication. GPU util is NVML's utilization.gpu (fraction of time a kernel was running, not SM occupancy), averaged over the timed steps. All rows use the selected headline configuration.
+

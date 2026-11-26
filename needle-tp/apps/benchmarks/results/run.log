@@ -1,0 +1,522 @@
+=== N=1: correctness
+Using needle backend
+suite=correctness N=1 device=cuda host=ghc41.ghc.andrew.cmu.edu
+{
+ "one_block": {
+  "dloss": 0.0,
+  "dgrad": 0.0,
+  "dgrad_rel": 0.0,
+  "ddx": 0.0,
+  "pass": true
+ },
+ "two_blocks": {
+  "dloss": 0.0,
+  "dgrad": 0.0,
+  "dgrad_rel": 0.0,
+  "ddx": 0.0,
+  "pass": true
+ },
+ "adam5": {
+  "dloss": 0.0,
+  "dgrad": 0.0,
+  "dgrad_rel": 0.0,
+  "pass": true
+ }
+}
+wrote results/tp_bench/correctness_N1.json
+=== N=1: headline --blocks 4
+Using needle backend
+suite=headline N=1 device=cuda host=ghc41.ghc.andrew.cmu.edu
+[rank 0] OOM: out of memory
+wrote results/tp_bench/headline_b4_N1.json
+=== N=1: headline --blocks 1
+Using needle backend
+suite=headline N=1 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [headline_b1_N1.json] step  -3     207.3 ms  loss 3.0031
+  [headline_b1_N1.json] step  -2     229.2 ms  loss 46.8563
+  [headline_b1_N1.json] step  -1     234.3 ms  loss 3.5626
+  [headline_b1_N1.json] step   0     258.0 ms  loss 3.5159
+  [headline_b1_N1.json] step   1     273.3 ms  loss 5.8693
+  [headline_b1_N1.json] step   2     284.2 ms  loss 4.6108
+  [headline_b1_N1.json] step   3     281.9 ms  loss 2.6004
+[rank 0] OOM: out of memory
+wrote results/tp_bench/headline_b1_N1.json
+=== N=1: scaling
+Using needle backend
+suite=scaling N=1 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [scaling_N1.json] step  -3     240.1 ms  loss 17.0811
+  [scaling_N1.json] step  -2     291.1 ms  loss 691.6810
+  [scaling_N1.json] step  -1     288.9 ms  loss 19.0195
+  [scaling_N1.json] step   0     329.2 ms  loss 259.0818
+  [scaling_N1.json] step   1     287.5 ms  loss 78.7852
+  [scaling_N1.json] step   2     288.2 ms  loss 6.8025
+  [scaling_N1.json] step   3     288.4 ms  loss 3.8340
+  [scaling_N1.json] step   4     289.0 ms  loss 2.4292
+  [scaling_N1.json] step   5     288.7 ms  loss 1.1403
+  [scaling_N1.json] step   6     288.9 ms  loss 1.0019
+  [scaling_N1.json] step   7     364.8 ms  loss 1.0101
+  [scaling_N1.json] step   8     288.7 ms  loss 1.0019
+  [scaling_N1.json] step   9     288.7 ms  loss 1.0066
+wrote results/tp_bench/scaling_N1.json
+=== N=2: correctness
+Using needle backend
+Using needle backend
+suite=correctness N=2 device=cuda host=ghc54.ghc.andrew.cmu.edu
+{
+ "one_block": {
+  "dloss": 0.0,
+  "dgrad": 5.587935447692871e-09,
+  "dgrad_rel": 1.4560688025513432e-07,
+  "ddx": 1.862645149230957e-09,
+  "pass": true
+ },
+ "two_blocks": {
+  "dloss": 0.0,
+  "dgrad": 1.30385160446167e-08,
+  "dgrad_rel": 2.931854651043958e-07,
+  "ddx": 2.0954757928848267e-09,
+  "pass": true
+ },
+ "adam5": {
+  "dloss": 1.1920928955078125e-07,
+  "dgrad": 3.9674341678619385e-07,
+  "dgrad_rel": 7.902392231529126e-06,
+  "pass": true
+ }
+}
+wrote results/tp_bench/correctness_N2.json
+=== N=2: headline --blocks 4
+Using needle backend
+Using needle backend
+suite=headline N=2 device=cuda host=ghc54.ghc.andrew.cmu.edu
+  [headline_b4_N2.json] step  -3     714.7 ms  loss 246.0903
+[rank 0] OOM: out of memory
+[rank 1] OOM: out of memory
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 2.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[ghc41.ghc.andrew.cmu.edu:57017] 1 more process has sent help message help-mpi-api.txt / mpi-abort
+[ghc41.ghc.andrew.cmu.edu:57017] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+!! N=2 'headline --blocks 4' exited with 2 (continuing)
+=== N=2: headline --blocks 1
+Using needle backend
+Using needle backend
+suite=headline N=2 device=cuda host=ghc54.ghc.andrew.cmu.edu
+  [headline_b1_N2.json] step  -3     172.1 ms  loss 4.9645
+  [headline_b1_N2.json] step  -2     173.1 ms  loss 40.3821
+  [headline_b1_N2.json] step  -1     177.8 ms  loss 3.8056
+  [headline_b1_N2.json] step   0     165.3 ms  loss 2.6619
+  [headline_b1_N2.json] step   1     180.1 ms  loss 3.9880
+  [headline_b1_N2.json] step   2     164.5 ms  loss 3.0695
+  [headline_b1_N2.json] step   3     171.0 ms  loss 1.7979
+  [headline_b1_N2.json] step   4     158.9 ms  loss 1.1779
+  [headline_b1_N2.json] step   5     165.6 ms  loss 1.0057
+  [headline_b1_N2.json] step   6     172.5 ms  loss 0.9788
+  [headline_b1_N2.json] step   7     160.3 ms  loss 0.9808
+  [headline_b1_N2.json] step   8     173.1 ms  loss 0.9849
+  [headline_b1_N2.json] step   9     161.2 ms  loss 0.9874
+wrote results/tp_bench/headline_b1_N2.json
+=== N=2: scaling
+Using needle backend
+Using needle backend
+suite=scaling N=2 device=cuda host=ghc54.ghc.andrew.cmu.edu
+  [scaling_N2.json] step  -3     468.4 ms  loss 258.5890
+  [scaling_N2.json] step  -2     496.3 ms  loss 111065.8672
+  [scaling_N2.json] step  -1     479.3 ms  loss 57.4169
+  [scaling_N2.json] step   0     558.5 ms  loss 93.8322
+  [scaling_N2.json] step   1     491.8 ms  loss 240046.3438
+  [scaling_N2.json] step   2     476.3 ms  loss 211885.8281
+  [scaling_N2.json] step   3     492.6 ms  loss 16.9235
+  [scaling_N2.json] step   4     500.7 ms  loss 24.2710
+  [scaling_N2.json] step   5     488.2 ms  loss 10.8315
+[rank 0] OOM: out of memory
+[rank 1] OOM: out of memory
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 1 in communicator MPI_COMM_WORLD
+with errorcode 2.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[ghc41.ghc.andrew.cmu.edu:57039] 1 more process has sent help message help-mpi-api.txt / mpi-abort
+[ghc41.ghc.andrew.cmu.edu:57039] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+!! N=2 'scaling' exited with 2 (continuing)
+=== N=2: allreduce
+Using needle backend
+Using needle backend
+suite=allreduce N=2 device=cuda host=ghc54.ghc.andrew.cmu.edu
+         4 B  MPI      112.5 us    0.000 GB/s   device e2e      143.8 us    0.000 GB/s
+        1 KB  MPI      110.3 us    0.009 GB/s   device e2e      157.8 us    0.006 GB/s
+       64 KB  MPI     1002.7 us    0.065 GB/s   device e2e     1030.0 us    0.064 GB/s
+        1 MB  MPI    10364.3 us    0.101 GB/s   device e2e    10626.9 us    0.099 GB/s
+       16 MB  MPI   147318.1 us    0.114 GB/s   device e2e   156966.3 us    0.107 GB/s
+   B x d x 4  MPI    19273.6 us    0.109 GB/s   device e2e    19834.9 us    0.106 GB/s
+wrote results/tp_bench/allreduce_N2.json
+=== N=4: correctness
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=correctness N=4 device=cuda host=ghc54.ghc.andrew.cmu.edu
+{
+ "one_block": {
+  "dloss": 0.0,
+  "dgrad": 7.450580596923828e-09,
+  "dgrad_rel": 1.9414250700684575e-07,
+  "ddx": 1.862645149230957e-09,
+  "pass": true
+ },
+ "two_blocks": {
+  "dloss": 0.0,
+  "dgrad": 1.30385160446167e-08,
+  "dgrad_rel": 2.6345465098010836e-07,
+  "ddx": 2.4156179279088974e-09,
+  "pass": true
+ },
+ "adam5": {
+  "dloss": 4.76837158203125e-07,
+  "dgrad": 9.224750101566315e-07,
+  "dgrad_rel": 1.9518230559389138e-05,
+  "pass": true
+ }
+}
+wrote results/tp_bench/correctness_N4.json
+=== N=4: headline --blocks 4
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=headline N=4 device=cuda host=ghc54.ghc.andrew.cmu.edu
+  [headline_b4_N4.json] step  -3     611.7 ms  loss 4125.0107
+  [headline_b4_N4.json] step  -2     686.9 ms  loss 25602646.0000
+  [headline_b4_N4.json] step  -1     655.4 ms  loss 335.5958
+  [headline_b4_N4.json] step   0     709.6 ms  loss 3826.4968
+  [headline_b4_N4.json] step   1     649.1 ms  loss 3296174.7500
+  [headline_b4_N4.json] step   2     653.4 ms  loss 2060.0869
+  [headline_b4_N4.json] step   3     665.9 ms  loss 11806.6338
+  [headline_b4_N4.json] step   4     650.0 ms  loss 31131.0195
+  [headline_b4_N4.json] step   5     649.1 ms  loss 1804.0442
+  [headline_b4_N4.json] step   6     762.6 ms  loss 1584.8107
+  [headline_b4_N4.json] step   7     672.9 ms  loss 2265.4099
+  [headline_b4_N4.json] step   8     636.4 ms  loss 840.0832
+  [headline_b4_N4.json] step   9     653.8 ms  loss 930.9883
+wrote results/tp_bench/headline_b4_N4.json
+=== N=4: headline --blocks 1
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=headline N=4 device=cuda host=ghc54.ghc.andrew.cmu.edu
+  [headline_b1_N4.json] step  -3     136.9 ms  loss 8.8893
+  [headline_b1_N4.json] step  -2     133.9 ms  loss 34.1790
+  [headline_b1_N4.json] step  -1     140.8 ms  loss 4.6184
+  [headline_b1_N4.json] step   0     133.6 ms  loss 2.2531
+  [headline_b1_N4.json] step   1     135.1 ms  loss 2.3574
+  [headline_b1_N4.json] step   2     140.4 ms  loss 1.7015
+  [headline_b1_N4.json] step   3     140.2 ms  loss 1.1698
+  [headline_b1_N4.json] step   4     134.9 ms  loss 1.0033
+  [headline_b1_N4.json] step   5     145.7 ms  loss 0.9831
+  [headline_b1_N4.json] step   6     135.2 ms  loss 0.9869
+  [headline_b1_N4.json] step   7     131.5 ms  loss 0.9898
+  [headline_b1_N4.json] step   8     142.2 ms  loss 0.9904
+  [headline_b1_N4.json] step   9     139.7 ms  loss 0.9899
+wrote results/tp_bench/headline_b1_N4.json
+=== N=4: scaling
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=scaling N=4 device=cuda host=ghc54.ghc.andrew.cmu.edu
+  [scaling_N4.json] step  -3     622.7 ms  loss 4125.0107
+  [scaling_N4.json] step  -2     657.3 ms  loss 25602646.0000
+  [scaling_N4.json] step  -1     641.1 ms  loss 335.5958
+  [scaling_N4.json] step   0     710.7 ms  loss 3826.4968
+  [scaling_N4.json] step   1     643.2 ms  loss 3296174.7500
+  [scaling_N4.json] step   2     691.9 ms  loss 2060.0869
+  [scaling_N4.json] step   3     666.3 ms  loss 11806.6338
+  [scaling_N4.json] step   4     652.6 ms  loss 31131.0195
+  [scaling_N4.json] step   5     660.1 ms  loss 1804.0442
+[rank 2] OOM: out of memory
+[rank 1] OOM: out of memory
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 1 in communicator MPI_COMM_WORLD
+with errorcode 2.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+  [scaling_N4.json] step   6     773.1 ms  loss 1584.8107
+[ghc41.ghc.andrew.cmu.edu:57102] 1 more process has sent help message help-mpi-api.txt / mpi-abort
+[ghc41.ghc.andrew.cmu.edu:57102] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+!! N=4 'scaling' exited with 2 (continuing)
+=== N=4: allreduce
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=allreduce N=4 device=cuda host=ghc54.ghc.andrew.cmu.edu
+         4 B  MPI      217.1 us    0.000 GB/s   device e2e      284.9 us    0.000 GB/s
+        1 KB  MPI      243.1 us    0.004 GB/s   device e2e      288.5 us    0.004 GB/s
+       64 KB  MPI     1785.4 us    0.037 GB/s   device e2e     1822.7 us    0.036 GB/s
+        1 MB  MPI    30275.5 us    0.035 GB/s   device e2e    20655.2 us    0.051 GB/s
+       16 MB  MPI   257350.8 us    0.065 GB/s   device e2e   230669.7 us    0.073 GB/s
+   B x d x 4  MPI    38352.7 us    0.055 GB/s   device e2e    30589.8 us    0.069 GB/s
+wrote results/tp_bench/allreduce_N4.json
+=== N=8: correctness
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=correctness N=8 device=cuda host=ghc41.ghc.andrew.cmu.edu
+{
+ "one_block": {
+  "dloss": 0.0,
+  "dgrad": 7.450580596923828e-09,
+  "dgrad_rel": 1.927986615145723e-07,
+  "ddx": 2.0954757928848267e-09,
+  "pass": true
+ },
+ "two_blocks": {
+  "dloss": 1.1920928955078125e-07,
+  "dgrad": 1.30385160446167e-08,
+  "dgrad_rel": 3.1319944146696176e-07,
+  "ddx": 2.7939677238464355e-09,
+  "pass": true
+ },
+ "adam5": {
+  "dloss": 2.384185791015625e-07,
+  "dgrad": 2.3422762751579285e-07,
+  "dgrad_rel": 4.95591618948649e-06,
+  "pass": true
+ }
+}
+wrote results/tp_bench/correctness_N8.json
+=== N=8: headline --blocks 4
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=headline N=8 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [headline_b4_N8.json] step  -3     605.0 ms  loss 61417.0938
+  [headline_b4_N8.json] step  -2     616.5 ms  loss 17423858.0000
+  [headline_b4_N8.json] step  -1     613.6 ms  loss 2756.7988
+  [headline_b4_N8.json] step   0     641.7 ms  loss 1732.3086
+  [headline_b4_N8.json] step   1     594.0 ms  loss 100276.4453
+  [headline_b4_N8.json] step   2     623.6 ms  loss 8726796.0000
+  [headline_b4_N8.json] step   3     612.3 ms  loss 17404.7422
+  [headline_b4_N8.json] step   4     607.9 ms  loss 14368.7578
+  [headline_b4_N8.json] step   5     613.3 ms  loss 5094.0029
+  [headline_b4_N8.json] step   6     606.7 ms  loss 17334.9922
+  [headline_b4_N8.json] step   7     677.2 ms  loss 61618.2930
+  [headline_b4_N8.json] step   8     619.7 ms  loss 0.9978
+  [headline_b4_N8.json] step   9     621.8 ms  loss 1.1365
+wrote results/tp_bench/headline_b4_N8.json
+=== N=8: headline --blocks 1
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=headline N=8 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [headline_b1_N8.json] step  -3     106.5 ms  loss 16.7923
+  [headline_b1_N8.json] step  -2     114.9 ms  loss 30.1479
+  [headline_b1_N8.json] step  -1     110.7 ms  loss 6.3195
+  [headline_b1_N8.json] step   0      99.7 ms  loss 2.3658
+  [headline_b1_N8.json] step   1     100.2 ms  loss 1.5283
+  [headline_b1_N8.json] step   2      92.4 ms  loss 1.1078
+  [headline_b1_N8.json] step   3      90.0 ms  loss 0.9983
+  [headline_b1_N8.json] step   4      99.8 ms  loss 0.9893
+  [headline_b1_N8.json] step   5     100.3 ms  loss 0.9907
+  [headline_b1_N8.json] step   6     100.0 ms  loss 0.9911
+  [headline_b1_N8.json] step   7      96.5 ms  loss 0.9909
+  [headline_b1_N8.json] step   8      99.1 ms  loss 0.9909
+  [headline_b1_N8.json] step   9     100.2 ms  loss 0.9909
+wrote results/tp_bench/headline_b1_N8.json
+=== N=8: scaling
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=scaling N=8 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [scaling_N8.json] step  -3     703.7 ms  loss 66004.9375
+  [scaling_N8.json] step  -2     744.4 ms  loss 7019254784.0000
+  [scaling_N8.json] step  -1     741.7 ms  loss 22902.5117
+  [scaling_N8.json] step   0     791.3 ms  loss 199055760.0000
+  [scaling_N8.json] step   1     731.6 ms  loss 35876640.0000
+  [scaling_N8.json] step   2     734.6 ms  loss 334015.3438
+  [scaling_N8.json] step   3     711.0 ms  loss 1738308.7500
+  [scaling_N8.json] step   4     742.3 ms  loss 11349496.0000
+  [scaling_N8.json] step   5     739.3 ms  loss 423904.8438
+[rank 2] OOM: out of memory
+  [scaling_N8.json] step   6     812.3 ms  loss 2254827.7500
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 2 in communicator MPI_COMM_WORLD
+with errorcode 2.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+An MPI communication peer process has unexpectedly disconnected.  This
+usually indicates a failure in the peer process (e.g., a crash or
+otherwise exiting without calling MPI_FINALIZE first).
+
+Although this local MPI process will likely now behave unpredictably
+(it may even hang or crash), the root cause of this problem is the
+failure of the peer -- that is what you need to investigate.  For
+example, there may be a core file that you can examine.  More
+generally: such peer hangups are frequently caused by application bugs
+or other external events.
+
+  Local host: ghc41
+  Local PID:  57541
+  Peer host:  (null)
+--------------------------------------------------------------------------
+[ghc41.ghc.andrew.cmu.edu:57528] 2 more processes have sent help message help-mpi-btl-tcp.txt / peer hung up
+[ghc41.ghc.andrew.cmu.edu:57528] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+!! N=8 'scaling' exited with 2 (continuing)
+=== N=8: allreduce
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=allreduce N=8 device=cuda host=ghc41.ghc.andrew.cmu.edu
+         4 B  MPI      230.5 us    0.000 GB/s   device e2e      309.6 us    0.000 GB/s
+        1 KB  MPI      292.9 us    0.003 GB/s   device e2e      357.3 us    0.003 GB/s
+       64 KB  MPI     2357.0 us    0.028 GB/s   device e2e     2419.7 us    0.027 GB/s
+        1 MB  MPI    31818.5 us    0.033 GB/s   device e2e    26156.0 us    0.040 GB/s
+       16 MB  MPI   348799.4 us    0.048 GB/s   device e2e   374987.8 us    0.045 GB/s
+   B x d x 4  MPI    55380.0 us    0.038 GB/s   device e2e    53531.9 us    0.039 GB/s
+wrote results/tp_bench/allreduce_N8.json
+# Tensor-parallel benchmark tables
+
+Hardware: NVIDIA GeForce RTX 2080 (cuda); config d=4096, h=16384, blocks=4, batch=128, Adam, fp32. Machines in the N-rank runs: N=1: 1, N=4: 4, N=8: 8
+
+## Memory
+
+| N | Params per rank | Predicted per rank (GB) | Measured peak per rank (GB) | Fits 8 GB GPU? |
+|---|---|---|---|---|
+| 1 | 537.0 M | 8.84 | OOM (reached 6.27 GB) | No |
+| 2 | 268.5 M | 4.45 | — | — |
+| 4 | 134.3 M | 2.25 | 6.28 (total 6.40 incl. CUDA context) | Yes |
+| 8 | 67.1 M | 1.15 | 3.23 (total 3.35 incl. CUDA context) | Yes |
+
+Predicted = 16 B/param (weights, grads, Adam m and v) + activation estimate (Needle keeps `.grad` on every graph node, so saved activations count twice). GB = 1e9 bytes; an 8 GB card has 8.59e9 B. Measured = NVML peak of this process minus the CUDA-context baseline. Memory source: nvidia-smi (`nvml-device` = whole GPU, so other users' memory would be included).
+
+## Correctness
+
+| Test | N | max abs Δ loss | max abs Δ gradient | max abs Δ dX | Pass (≤ 1e-5) |
+|---|---|---|---|---|---|
+| One TPMLP block | 1 | 0.0e+00 | 0.0e+00 | 0.0e+00 | PASS |
+| One TPMLP block | 2 | 0.0e+00 | 5.6e-09 | 1.9e-09 | PASS |
+| One TPMLP block | 4 | 0.0e+00 | 7.5e-09 | 1.9e-09 | PASS |
+| One TPMLP block | 8 | 0.0e+00 | 7.5e-09 | 2.1e-09 | PASS |
+| Two stacked blocks | 1/2/4/8 | 1.2e-07 | 1.3e-08 | 2.8e-09 | PASS |
+| 5 Adam steps (worst step) | 1/2/4/8 | 4.8e-07 | 9.2e-07 | n/a | PASS |
+
+Run on cuda (NVIDIA GeForce RTX 2080), d=64, h=256, B=16, loss = mean squared error. Worst gradient error relative to the largest gradient entry: 2.0e-05. Worst case over all ranks. Δ = TP result vs. the dense model built from the same weights.
+
+## Throughput
+
+| N | Machines | Batch | Median step (ms) | Samples/s | Speedup vs. N=1 | Parallel efficiency |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 128 | OOM | — | — | — |
+| 2 | 2 | 128 | — | — | — | — |
+| 4 | 4 | 128 | 659.2 | 194.2 | — | — |
+| 8 | 8 | 128 | 633.2 | 202.1 | — | — |
+
+Supplement: the same comparison with 1 block (134M params), which fits on one GPU, so every number is measured.
+
+| N | Machines | Batch | Median step (ms) | Samples/s | Speedup vs. N=1 | Parallel efficiency |
+|---|---|---|---|---|---|---|
+| 1 | — | 128 | — | — | — | — |
+| 2 | 2 | 128 | 172.7 | 741.0 | — | — |
+| 4 | 4 | 128 | 137.5 | 931.2 | — | — |
+| 8 | 8 | 128 | 112.5 | 1,137.5 | — | — |
+
+## Communication time
+
+| N | Compute (ms) | GPU→host (ms) | All-reduce (ms) | Host→GPU (ms) | Step total (ms) | Comm share (%) | All-reduces per step | Bytes per all-reduce |
+|---|---|---|---|---|---|---|---|---|
+| 1 | — | — | — | — | — | — | — | B × 4096 × 4 |
+| 2 | — | — | — | — | — | — | — | B × 4096 × 4 |
+| 4 | 329.7 | 2.19 | 346.04 | 1.98 | 659.2 | 53.1 % | 7 | 2.10 MB (= 128 × 4096 × 4) |
+| 8 | 191.5 | 2.18 | 450.36 | 2.04 | 633.2 | 71.8 % | 7 | 2.10 MB (= 128 × 4096 × 4) |
+
+Medians over timed steps, slowest rank. Compute = step − comm (queued kernels are charged to compute because all_reduce is preceded by a device sync). All-reduces per step are measured: block 0's input does not require a gradient, so autograd detaches its `f` and only 2·blocks − 1 fire (7 for 4 blocks, not 8). `* ` = N=1 row estimated from the 1-block run.
+
+## Scaling (weak: h = 4096·N, per-rank work constant)
+
+| N | h | Throughput (samples/s × N, model-size-normalized) | Raw samples/s | Ideal (N × throughput₁) | Efficiency |
+|---|---|---|---|---|---|
+| 1 | 4096 | 443.3 | 443.3 | 443.3 | 100 % |
+| 2 | 8192 | — | — | — | — |
+| 4 | 16384 | — | — | — | — |
+| 8 | 32768 | — | — | — | — |
+
+Raw samples/s is flat under perfect weak scaling, because the model grows N-fold while each rank's work stays constant. The normalized column multiplies by N (model FLOPs per sample grow ∝ h), which makes `Ideal = N × throughput₁` correct, and efficiency = raw₍N₎ / raw₍1₎ = step₁ / step_N.
+
+## All-reduce latency
+
+### Host-side MPI Allreduce only (network + MPI)
+
+| Message size | Floats | N=2 latency (µs) | N=4 latency (µs) | N=8 latency (µs) | N=2 algo BW (GB/s) | N=4 algo BW (GB/s) | N=8 algo BW (GB/s) |
+|---|---|---|---|---|---|---|---|
+| 4 B | 1 | 112.5 | 217.1 | 230.5 | 0.000 | 0.000 | 0.000 |
+| 1 KB | 256 | 110.3 | 243.1 | 292.9 | 0.009 | 0.004 | 0.003 |
+| 64 KB | 16,384 | 1,002.7 | 1,785.4 | 2,357.0 | 0.065 | 0.037 | 0.028 |
+| 1 MB | 262,144 | 10,364.3 | 30,275.5 | 31,818.5 | 0.101 | 0.035 | 0.033 |
+| 16 MB | 4,194,304 | 147,318.1 | 257,350.8 | 348,799.4 | 0.114 | 0.065 | 0.048 |
+| B × d × 4 | 524,288 | 19,273.6 | 38,352.7 | 55,380.0 | 0.109 | 0.055 | 0.038 |
+
+### End-to-end `distributed.all_reduce` on a device array (GPU→host + MPI + host→GPU)
+
+| Message size | Floats | N=2 latency (µs) | N=4 latency (µs) | N=8 latency (µs) | N=2 algo BW (GB/s) | N=4 algo BW (GB/s) | N=8 algo BW (GB/s) |
+|---|---|---|---|---|---|---|---|
+| 4 B | 1 | 143.8 | 284.9 | 309.6 | 0.000 | 0.000 | 0.000 |
+| 1 KB | 256 | 157.8 | 288.5 | 357.3 | 0.006 | 0.004 | 0.003 |
+| 64 KB | 16,384 | 1,030.0 | 1,822.7 | 2,419.7 | 0.064 | 0.036 | 0.027 |
+| 1 MB | 262,144 | 10,626.9 | 20,655.2 | 26,156.0 | 0.099 | 0.051 | 0.040 |
+| 16 MB | 4,194,304 | 156,966.3 | 230,669.7 | 374,987.8 | 0.107 | 0.073 | 0.045 |
+| B × d × 4 | 524,288 | 19,834.9 | 30,589.8 | 53,531.9 | 0.106 | 0.069 | 0.039 |
+
+Algo BW = message bytes / latency. Median over 30–200 iterations after 10 warm-ups, slowest rank. The last row is the message the model actually sends.
+
+## Utilization
+
+| N | FLOPs per GPU per step | Step time (s) | Achieved TFLOPS | % of peak (10 TFLOPS) | GPU util (%) |
+|---|---|---|---|---|---|
+| 1 | 412 GFLOP | — | — | — | — |
+| 2 | 206 GFLOP | — | — | — | — |
+| 4 | 103 GFLOP | 0.659 | 0.156 | 1.6 % | 49 |
+| 8 | 52 GFLOP | 0.633 | 0.081 | 0.8 % | 27 |
+
+FLOPs = 12·B·d·h per block (fwd + bwd ≈ 3 × fwd), ÷ N, × blocks. Achieved TFLOPS counts the whole step including communication. GPU util is NVML's utilization.gpu (fraction of time a kernel was running, not SM occupancy), averaged over the timed steps. N=1 uses the 1-block run.
+

@@ -1,0 +1,328 @@
+=== N=1: correctness
+Using needle backend
+suite=correctness N=1 device=cuda host=ghc41.ghc.andrew.cmu.edu
+{
+ "one_block": {
+  "dloss": 0.0,
+  "dgrad": 0.0,
+  "dgrad_rel": 0.0,
+  "ddx": 0.0,
+  "pass": true
+ },
+ "two_blocks": {
+  "dloss": 0.0,
+  "dgrad": 0.0,
+  "dgrad_rel": 0.0,
+  "ddx": 0.0,
+  "pass": true
+ },
+ "adam5": {
+  "dloss": 0.0,
+  "dgrad": 0.0,
+  "dgrad_rel": 0.0,
+  "pass": true
+ }
+}
+wrote results/tp_bench_full_small_new4/correctness_N1.json
+=== N=1: headline --blocks 1
+Using needle backend
+suite=headline N=1 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [headline_b1_N1.json] step  -3     124.2 ms  loss 2.9809
+  [headline_b1_N1.json] step  -2     146.8 ms  loss 9.8722
+  [headline_b1_N1.json] step  -1     133.1 ms  loss 1.6443
+  [headline_b1_N1.json] step   0     138.7 ms  loss 1.1185
+  [headline_b1_N1.json] step   1     134.8 ms  loss 1.4167
+  [headline_b1_N1.json] step   2     133.5 ms  loss 1.3157
+  [headline_b1_N1.json] step   3     138.3 ms  loss 1.0848
+  [headline_b1_N1.json] step   4     134.5 ms  loss 0.9468
+  [headline_b1_N1.json] step   5     133.8 ms  loss 0.9043
+  [headline_b1_N1.json] step   6     135.9 ms  loss 0.9016
+  [headline_b1_N1.json] step   7     136.0 ms  loss 0.9067
+  [headline_b1_N1.json] step   8     148.1 ms  loss 0.9094
+  [headline_b1_N1.json] step   9     135.0 ms  loss 0.9079
+wrote results/tp_bench_full_small_new4/headline_b1_N1.json
+=== N=1: scaling --h-base 4096
+Using needle backend
+suite=scaling N=1 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [scaling_N1.json] step  -3     239.7 ms  loss 17.0811
+  [scaling_N1.json] step  -2     290.7 ms  loss 691.6810
+  [scaling_N1.json] step  -1     288.5 ms  loss 19.0195
+  [scaling_N1.json] step   0     328.2 ms  loss 259.0818
+  [scaling_N1.json] step   1     290.2 ms  loss 78.7852
+  [scaling_N1.json] step   2     289.0 ms  loss 6.8025
+  [scaling_N1.json] step   3     288.8 ms  loss 3.8340
+  [scaling_N1.json] step   4     288.9 ms  loss 2.4292
+  [scaling_N1.json] step   5     288.4 ms  loss 1.1403
+  [scaling_N1.json] step   6     288.4 ms  loss 1.0019
+  [scaling_N1.json] step   7     364.9 ms  loss 1.0101
+  [scaling_N1.json] step   8     287.8 ms  loss 1.0019
+  [scaling_N1.json] step   9     288.4 ms  loss 1.0066
+wrote results/tp_bench_full_small_new4/scaling_N1.json
+=== N=2: correctness
+Using needle backend
+Using needle backend
+suite=correctness N=2 device=cuda host=ghc41.ghc.andrew.cmu.edu
+{
+ "one_block": {
+  "dloss": 0.0,
+  "dgrad": 5.587935447692871e-09,
+  "dgrad_rel": 1.4560688025513432e-07,
+  "ddx": 1.862645149230957e-09,
+  "pass": true
+ },
+ "two_blocks": {
+  "dloss": 0.0,
+  "dgrad": 1.30385160446167e-08,
+  "dgrad_rel": 2.931854651043958e-07,
+  "ddx": 2.0954757928848267e-09,
+  "pass": true
+ },
+ "adam5": {
+  "dloss": 1.1920928955078125e-07,
+  "dgrad": 3.9674341678619385e-07,
+  "dgrad_rel": 7.902392231529126e-06,
+  "pass": true
+ }
+}
+wrote results/tp_bench_full_small_new4/correctness_N2.json
+=== N=2: headline --blocks 1
+Using needle backend
+Using needle backend
+suite=headline N=2 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [headline_b1_N2.json] step  -3     114.6 ms  loss 4.9446
+  [headline_b1_N2.json] step  -2     116.0 ms  loss 8.6047
+  [headline_b1_N2.json] step  -1     108.5 ms  loss 2.1634
+  [headline_b1_N2.json] step   0     109.9 ms  loss 1.2103
+  [headline_b1_N2.json] step   1     100.4 ms  loss 1.1105
+  [headline_b1_N2.json] step   2     105.5 ms  loss 1.0136
+  [headline_b1_N2.json] step   3     107.6 ms  loss 0.9462
+  [headline_b1_N2.json] step   4     100.4 ms  loss 0.9245
+  [headline_b1_N2.json] step   5     112.4 ms  loss 0.9243
+  [headline_b1_N2.json] step   6     100.9 ms  loss 0.9278
+  [headline_b1_N2.json] step   7     102.0 ms  loss 0.9298
+  [headline_b1_N2.json] step   8     120.7 ms  loss 0.9301
+  [headline_b1_N2.json] step   9     101.6 ms  loss 0.9298
+wrote results/tp_bench_full_small_new4/headline_b1_N2.json
+=== N=2: scaling --h-base 4096
+Using needle backend
+Using needle backend
+suite=scaling N=2 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [scaling_N2.json] step  -3     451.1 ms  loss 258.5890
+  [scaling_N2.json] step  -2     480.7 ms  loss 111065.8672
+  [scaling_N2.json] step  -1     453.0 ms  loss 57.4169
+  [scaling_N2.json] step   0     503.0 ms  loss 93.8322
+  [scaling_N2.json] step   1     443.8 ms  loss 240046.3438
+  [scaling_N2.json] step   2     452.2 ms  loss 211885.8281
+  [scaling_N2.json] step   3     440.5 ms  loss 16.9235
+  [scaling_N2.json] step   4     455.0 ms  loss 24.2710
+  [scaling_N2.json] step   5     439.3 ms  loss 10.8315
+[rank 1] OOM: out of memory
+[rank 0] OOM: out of memory
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 1 in communicator MPI_COMM_WORLD
+with errorcode 2.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[ghc41.ghc.andrew.cmu.edu:20561] 1 more process has sent help message help-mpi-api.txt / mpi-abort
+[ghc41.ghc.andrew.cmu.edu:20561] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+!! N=2 'scaling --h-base 4096' exited with 2 (continuing)
+=== N=2: allreduce
+Using needle backend
+Using needle backend
+suite=allreduce N=2 device=cuda host=ghc41.ghc.andrew.cmu.edu
+         4 B  MPI       59.5 us    0.000 GB/s   device e2e      143.3 us    0.000 GB/s
+        1 KB  MPI      107.9 us    0.009 GB/s   device e2e      153.6 us    0.007 GB/s
+       64 KB  MPI     1002.1 us    0.065 GB/s   device e2e     1031.9 us    0.064 GB/s
+        1 MB  MPI    14629.6 us    0.072 GB/s   device e2e    10618.4 us    0.099 GB/s
+       16 MB  MPI   147257.0 us    0.114 GB/s   device e2e   155650.8 us    0.108 GB/s
+   B x d x 4  MPI    19269.9 us    0.109 GB/s   device e2e    19861.5 us    0.106 GB/s
+wrote results/tp_bench_full_small_new4/allreduce_N2.json
+=== N=4: correctness
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=correctness N=4 device=cuda host=ghc41.ghc.andrew.cmu.edu
+{
+ "one_block": {
+  "dloss": 0.0,
+  "dgrad": 7.450580596923828e-09,
+  "dgrad_rel": 1.9414250700684575e-07,
+  "ddx": 1.862645149230957e-09,
+  "pass": true
+ },
+ "two_blocks": {
+  "dloss": 0.0,
+  "dgrad": 1.30385160446167e-08,
+  "dgrad_rel": 2.6345465098010836e-07,
+  "ddx": 2.4156179279088974e-09,
+  "pass": true
+ },
+ "adam5": {
+  "dloss": 4.76837158203125e-07,
+  "dgrad": 9.224750101566315e-07,
+  "dgrad_rel": 1.9518230559389138e-05,
+  "pass": true
+ }
+}
+wrote results/tp_bench_full_small_new4/correctness_N4.json
+=== N=4: headline --blocks 1
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=headline N=4 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [headline_b1_N4.json] step  -3      98.8 ms  loss 8.8972
+  [headline_b1_N4.json] step  -2      98.2 ms  loss 8.1779
+  [headline_b1_N4.json] step  -1      97.6 ms  loss 2.9559
+  [headline_b1_N4.json] step   0      83.6 ms  loss 1.4638
+  [headline_b1_N4.json] step   1      89.4 ms  loss 1.0763
+  [headline_b1_N4.json] step   2      87.1 ms  loss 0.9745
+  [headline_b1_N4.json] step   3      87.4 ms  loss 0.9602
+  [headline_b1_N4.json] step   4      88.5 ms  loss 0.9612
+  [headline_b1_N4.json] step   5      87.8 ms  loss 0.9621
+  [headline_b1_N4.json] step   6      87.6 ms  loss 0.9618
+  [headline_b1_N4.json] step   7      87.6 ms  loss 0.9614
+  [headline_b1_N4.json] step   8      87.2 ms  loss 0.9612
+  [headline_b1_N4.json] step   9      89.2 ms  loss 0.9608
+wrote results/tp_bench_full_small_new4/headline_b1_N4.json
+=== N=4: scaling --h-base 4096
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=scaling N=4 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [scaling_N4.json] step  -3     629.6 ms  loss 4125.0107
+  [scaling_N4.json] step  -2     659.4 ms  loss 25602646.0000
+  [scaling_N4.json] step  -1     661.7 ms  loss 335.5958
+  [scaling_N4.json] step   0     700.4 ms  loss 3826.4968
+  [scaling_N4.json] step   1     648.7 ms  loss 3296174.7500
+  [scaling_N4.json] step   2     666.0 ms  loss 2060.0869
+  [scaling_N4.json] step   3     616.5 ms  loss 11806.6338
+  [scaling_N4.json] step   4     607.4 ms  loss 31131.0195
+  [scaling_N4.json] step   5     666.3 ms  loss 1804.0442
+[rank 2] OOM: out of memory
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 2 in communicator MPI_COMM_WORLD
+with errorcode 2.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+  [scaling_N4.json] step   6     681.6 ms  loss 1584.8107
+!! N=4 'scaling --h-base 4096' exited with 2 (continuing)
+=== N=4: allreduce
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=allreduce N=4 device=cuda host=ghc41.ghc.andrew.cmu.edu
+         4 B  MPI      234.0 us    0.000 GB/s   device e2e      280.6 us    0.000 GB/s
+        1 KB  MPI      223.9 us    0.005 GB/s   device e2e      280.3 us    0.004 GB/s
+       64 KB  MPI     1828.5 us    0.036 GB/s   device e2e     1815.8 us    0.036 GB/s
+        1 MB  MPI    30076.1 us    0.035 GB/s   device e2e    21335.4 us    0.049 GB/s
+       16 MB  MPI   257730.0 us    0.065 GB/s   device e2e   267152.9 us    0.063 GB/s
+   B x d x 4  MPI    38569.7 us    0.054 GB/s   device e2e    39153.3 us    0.054 GB/s
+wrote results/tp_bench_full_small_new4/allreduce_N4.json
+=== N=8: correctness
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=correctness N=8 device=cuda host=ghc41.ghc.andrew.cmu.edu
+{
+ "one_block": {
+  "dloss": 0.0,
+  "dgrad": 7.450580596923828e-09,
+  "dgrad_rel": 1.927986615145723e-07,
+  "ddx": 2.0954757928848267e-09,
+  "pass": true
+ },
+ "two_blocks": {
+  "dloss": 1.1920928955078125e-07,
+  "dgrad": 1.30385160446167e-08,
+  "dgrad_rel": 3.1319944146696176e-07,
+  "ddx": 2.7939677238464355e-09,
+  "pass": true
+ },
+ "adam5": {
+  "dloss": 2.384185791015625e-07,
+  "dgrad": 2.3422762751579285e-07,
+  "dgrad_rel": 4.95591618948649e-06,
+  "pass": true
+ }
+}
+wrote results/tp_bench_full_small_new4/correctness_N8.json
+=== N=8: headline --blocks 1
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=headline N=8 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [headline_b1_N8.json] step  -3      89.5 ms  loss 16.9146
+  [headline_b1_N8.json] step  -2      88.4 ms  loss 9.2606
+  [headline_b1_N8.json] step  -1      97.8 ms  loss 4.1157
+  [headline_b1_N8.json] step   0      85.3 ms  loss 1.8506
+  [headline_b1_N8.json] step   1      89.3 ms  loss 1.1513
+  [headline_b1_N8.json] step   2      97.8 ms  loss 1.0112
+  [headline_b1_N8.json] step   3      95.1 ms  loss 0.9897
+  [headline_b1_N8.json] step   4      94.8 ms  loss 0.9863
+  [headline_b1_N8.json] step   5      83.9 ms  loss 0.9853
+  [headline_b1_N8.json] step   6      87.4 ms  loss 0.9847
+  [headline_b1_N8.json] step   7      86.3 ms  loss 0.9842
+  [headline_b1_N8.json] step   8      84.0 ms  loss 0.9838
+  [headline_b1_N8.json] step   9      83.2 ms  loss 0.9834
+wrote results/tp_bench_full_small_new4/headline_b1_N8.json
+=== N=8: scaling --h-base 4096
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=scaling N=8 device=cuda host=ghc41.ghc.andrew.cmu.edu
+  [scaling_N8.json] step  -3     698.9 ms  loss 66004.9375
+  [scaling_N8.json] step  -2     738.5 ms  loss 7019254784.0000
+  [scaling_N8.json] step  -1     739.7 ms  loss 22902.5117
+  [scaling_N8.json] step   0     789.7 ms  loss 199055760.0000
+  [scaling_N8.json] step   1     740.2 ms  loss 35876640.0000
+  [scaling_N8.json] step   2     738.4 ms  loss 334015.3438
+  [scaling_N8.json] step   3     741.6 ms  loss 1738308.7500
+  [scaling_N8.json] step   4     743.4 ms  loss 11349496.0000
+  [scaling_N8.json] step   5     744.0 ms  loss 423904.8438
+  [scaling_N8.json] step   6     834.1 ms  loss 2254827.7500
+  [scaling_N8.json] step   7     744.1 ms  loss 591902.2500
+  [scaling_N8.json] step   8     746.7 ms  loss 673242.1875
+  [scaling_N8.json] step   9     743.6 ms  loss 57510.9492
+wrote results/tp_bench_full_small_new4/scaling_N8.json
+=== N=8: allreduce
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+Using needle backend
+suite=allreduce N=8 device=cuda host=ghc41.ghc.andrew.cmu.edu
+         4 B  MPI      230.8 us    0.000 GB/s   device e2e      303.4 us    0.000 GB/s
+        1 KB  MPI      292.4 us    0.004 GB/s   device e2e      348.4 us    0.003 GB/s
+       64 KB  MPI     2345.6 us    0.028 GB/s   device e2e     2393.2 us    0.027 GB/s
+        1 MB  MPI    30648.5 us    0.034 GB/s   device e2e    26060.5 us    0.040 GB/s
+       16 MB  MPI   343417.2 us    0.049 GB/s   device e2e   352848.1 us    0.048 GB/s
+   B x d x 4  MPI    51132.2 us    0.041 GB/s   device e2e    49838.8 us    0.042 GB/s
+wrote results/tp_bench_full_small_new4/allreduce_N8.json

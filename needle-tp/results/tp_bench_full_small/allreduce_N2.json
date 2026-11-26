@@ -1,0 +1,84 @@
+{
+ "world_size": 2,
+ "device": "cuda",
+ "gpu": "NVIDIA GeForce RTX 2080",
+ "hosts": [
+  "ghc41.ghc.andrew.cmu.edu",
+  "ghc29.ghc.andrew.cmu.edu"
+ ],
+ "machines": 2,
+ "command": "apps/benchmarks/bench_tp.py allreduce --device cuda --out-dir results/tp_bench_full_small --d 4096 --h 8192 --blocks 1 --batch 128",
+ "time": "2026-11-23 11:05:37",
+ "config": {
+  "batch": 128,
+  "d": 4096
+ },
+ "rows": [
+  {
+   "label": "4 B",
+   "floats": 1,
+   "bytes": 4,
+   "mpi_us": 56.20799947791966,
+   "e2e_us": 142.75200101110386,
+   "mpi_algbw_gbs": 7.116424774326529e-05,
+   "mpi_busbw_gbs": 7.116424774326529e-05,
+   "e2e_algbw_gbs": 2.8020622980191098e-05,
+   "e2e_busbw_gbs": 2.8020622980191098e-05
+  },
+  {
+   "label": "1 KB",
+   "floats": 256,
+   "bytes": 1024,
+   "mpi_us": 107.78100113384426,
+   "e2e_us": 152.63850036717486,
+   "mpi_algbw_gbs": 0.009500746784940136,
+   "mpi_busbw_gbs": 0.009500746784940136,
+   "e2e_algbw_gbs": 0.006708661298012941,
+   "e2e_busbw_gbs": 0.006708661298012941
+  },
+  {
+   "label": "64 KB",
+   "floats": 16384,
+   "bytes": 65536,
+   "mpi_us": 1001.8340008173254,
+   "e2e_us": 1027.5444992657867,
+   "mpi_algbw_gbs": 0.06541602695310182,
+   "mpi_busbw_gbs": 0.06541602695310182,
+   "e2e_algbw_gbs": 0.06377923296443858,
+   "e2e_busbw_gbs": 0.06377923296443858
+  },
+  {
+   "label": "1 MB",
+   "floats": 262144,
+   "bytes": 1048576,
+   "mpi_us": 14659.465499789803,
+   "e2e_us": 10614.508500111697,
+   "mpi_algbw_gbs": 0.07152893807861106,
+   "mpi_busbw_gbs": 0.07152893807861106,
+   "e2e_algbw_gbs": 0.09878705170276757,
+   "e2e_busbw_gbs": 0.09878705170276757
+  },
+  {
+   "label": "16 MB",
+   "floats": 4194304,
+   "bytes": 16777216,
+   "mpi_us": 147274.38149930094,
+   "e2e_us": 156731.9059986403,
+   "mpi_algbw_gbs": 0.11391808832739614,
+   "mpi_busbw_gbs": 0.11391808832739614,
+   "e2e_algbw_gbs": 0.10704403735220032,
+   "e2e_busbw_gbs": 0.10704403735220032
+  },
+  {
+   "label": "B x d x 4",
+   "floats": 524288,
+   "bytes": 2097152,
+   "mpi_us": 19453.373999567702,
+   "e2e_us": 19853.12650049309,
+   "mpi_algbw_gbs": 0.10780402412695111,
+   "mpi_busbw_gbs": 0.10780402412695111,
+   "e2e_algbw_gbs": 0.10563333689270116,
+   "e2e_busbw_gbs": 0.10563333689270116
+  }
+ ]
+}

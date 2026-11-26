@@ -1,0 +1,90 @@
+{
+ "world_size": 4,
+ "device": "cuda",
+ "gpu": "NVIDIA GeForce RTX 2080",
+ "hosts": [
+  "ghc41.ghc.andrew.cmu.edu",
+  "ghc29.ghc.andrew.cmu.edu",
+  "ghc32.ghc.andrew.cmu.edu",
+  "ghc33.ghc.andrew.cmu.edu"
+ ],
+ "machines": 4,
+ "command": "apps/benchmarks/bench_tp.py headline --blocks 1 --device cuda --out-dir results/tp_bench_full_small --d 4096 --h 8192 --blocks 1 --batch 128",
+ "time": "2026-11-23 11:05:38",
+ "config": {
+  "d": 4096,
+  "h": 8192,
+  "blocks": 1,
+  "batch": 128,
+  "steps": 10,
+  "warmup": 3,
+  "optimizer": "adam"
+ },
+ "predicted_params_per_rank": 16783360,
+ "predicted_state_bytes": 268533760,
+ "predicted_activation_bytes": 18874368,
+ "mem_mode": "nvidia-smi",
+ "gpu_total_bytes": 8589934592,
+ "status": "ok",
+ "params_per_rank": 16783360,
+ "peak_total_bytes": 1574961152,
+ "peak_model_bytes": 1457520640,
+ "baseline_bytes": 117440512,
+ "step_ms": 92.39113150033518,
+ "compute_ms": 48.46757799987245,
+ "d2h_ms": 0.31375849994219607,
+ "allreduce_ms": 43.35676049959147,
+ "h2d_ms": 0.2266395003971411,
+ "comm_ms": 43.96677499971702,
+ "calls_per_step": 1.0,
+ "bytes_per_call": 2097152.0,
+ "step_ms_all": [
+  94.10786899934465,
+  95.65569100050197,
+  87.5882839991391,
+  93.7738199991145,
+  80.22326799982693,
+  78.41924999956973,
+  78.7464330005605,
+  95.7642190005572,
+  88.07925200017053,
+  78.80386100077885
+ ],
+ "final_loss": 0.9607940912246704,
+ "gpu_util_pct": 17.833333333333332,
+ "flops_per_gpu_step": 12884901888.0,
+ "per_rank": [
+  {
+   "status": "ok",
+   "peak_total_bytes": 1574961152,
+   "peak_model_bytes": 1457520640,
+   "step_ms": 87.83376799965481,
+   "comm_ms": 39.50684199935495,
+   "gpu_util_pct": 21.0
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1260388352,
+   "peak_model_bytes": 1142947840,
+   "step_ms": 82.19651550098206,
+   "comm_ms": 33.80010650107579,
+   "gpu_util_pct": 7.0
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1249902592,
+   "peak_model_bytes": 1132462080,
+   "step_ms": 92.39113150033518,
+   "comm_ms": 43.96677499971702,
+   "gpu_util_pct": 22.333333333333332
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 1249902592,
+   "peak_model_bytes": 1132462080,
+   "step_ms": 86.74997199977952,
+   "comm_ms": 39.01448750002601,
+   "gpu_util_pct": 21.0
+  }
+ ]
+}

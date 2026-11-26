@@ -1,0 +1,90 @@
+{
+ "world_size": 8,
+ "device": "cuda",
+ "gpu": "NVIDIA GeForce RTX 2080",
+ "hosts": [
+  "ghc41.ghc.andrew.cmu.edu",
+  "ghc29.ghc.andrew.cmu.edu",
+  "ghc32.ghc.andrew.cmu.edu",
+  "ghc33.ghc.andrew.cmu.edu",
+  "ghc40.ghc.andrew.cmu.edu",
+  "ghc42.ghc.andrew.cmu.edu",
+  "ghc46.ghc.andrew.cmu.edu",
+  "ghc48.ghc.andrew.cmu.edu"
+ ],
+ "machines": 8,
+ "command": "apps/benchmarks/bench_tp.py allreduce --device cuda --out-dir results/tp_bench_full_large --d 4096 --h 16384 --batch 128",
+ "time": "2026-11-23 12:09:55",
+ "config": {
+  "batch": 128,
+  "d": 4096
+ },
+ "rows": [
+  {
+   "label": "4 B",
+   "floats": 1,
+   "bytes": 4,
+   "mpi_us": 228.1084998685401,
+   "e2e_us": 304.16050140047446,
+   "mpi_algbw_gbs": 1.7535514907621665e-05,
+   "mpi_busbw_gbs": 3.068715108833791e-05,
+   "e2e_algbw_gbs": 1.3150951492986199e-05,
+   "e2e_busbw_gbs": 2.3014165112725847e-05
+  },
+  {
+   "label": "1 KB",
+   "floats": 256,
+   "bytes": 1024,
+   "mpi_us": 287.3084995371755,
+   "e2e_us": 346.45149935386144,
+   "mpi_algbw_gbs": 0.0035641131454501305,
+   "mpi_busbw_gbs": 0.006237198004537728,
+   "e2e_algbw_gbs": 0.0029556806707714623,
+   "e2e_busbw_gbs": 0.005172441173850059
+  },
+  {
+   "label": "64 KB",
+   "floats": 16384,
+   "bytes": 65536,
+   "mpi_us": 2326.784499018686,
+   "e2e_us": 2413.2805010594893,
+   "mpi_algbw_gbs": 0.02816590880145523,
+   "mpi_busbw_gbs": 0.04929034040254665,
+   "e2e_algbw_gbs": 0.02715639560806466,
+   "e2e_busbw_gbs": 0.04752369231411316
+  },
+  {
+   "label": "1 MB",
+   "floats": 262144,
+   "bytes": 1048576,
+   "mpi_us": 31348.65100037132,
+   "e2e_us": 26186.650999079575,
+   "mpi_algbw_gbs": 0.03344883963228848,
+   "mpi_busbw_gbs": 0.05853546935650484,
+   "e2e_algbw_gbs": 0.04004238648297776,
+   "e2e_busbw_gbs": 0.07007417634521108
+  },
+  {
+   "label": "16 MB",
+   "floats": 4194304,
+   "bytes": 16777216,
+   "mpi_us": 330786.95949916437,
+   "e2e_us": 376250.1635010267,
+   "mpi_algbw_gbs": 0.05071909734713222,
+   "mpi_busbw_gbs": 0.0887584203574814,
+   "e2e_algbw_gbs": 0.044590587931941775,
+   "e2e_busbw_gbs": 0.07803352888089811
+  },
+  {
+   "label": "B x d x 4",
+   "floats": 524288,
+   "bytes": 2097152,
+   "mpi_us": 51792.90849991958,
+   "e2e_us": 50117.26450175047,
+   "mpi_algbw_gbs": 0.04049110314017712,
+   "mpi_busbw_gbs": 0.07085943049530996,
+   "e2e_algbw_gbs": 0.041844901569333494,
+   "e2e_busbw_gbs": 0.07322857774633361
+  }
+ ]
+}

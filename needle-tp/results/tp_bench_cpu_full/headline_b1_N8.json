@@ -1,0 +1,126 @@
+{
+ "world_size": 8,
+ "device": "cpu",
+ "gpu": "cpu",
+ "hosts": [
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local",
+  "Anishkas-MacBook-Pro-8.local"
+ ],
+ "machines": 1,
+ "command": "apps/benchmarks/bench_tp.py headline --blocks 1 --device cpu --out-dir results/tp_bench_cpu_full --d 4096 --h 8192 --blocks 1 --batch 128 --steps 10 --warmup 3",
+ "time": "2026-11-23 14:45:42",
+ "config": {
+  "d": 4096,
+  "h": 8192,
+  "blocks": 1,
+  "batch": 128,
+  "steps": 10,
+  "warmup": 3,
+  "optimizer": "adam"
+ },
+ "predicted_params_per_rank": 8393728,
+ "predicted_state_bytes": 134299648,
+ "predicted_activation_bytes": 15728640,
+ "mem_mode": "none",
+ "gpu_total_bytes": null,
+ "status": "ok",
+ "params_per_rank": 8393728,
+ "peak_total_bytes": 704069632,
+ "peak_model_bytes": 654622720,
+ "baseline_bytes": 49446912,
+ "step_ms": 1360.8520000707358,
+ "compute_ms": 1337.690019281581,
+ "d2h_ms": 0.2758756745606661,
+ "allreduce_ms": 30.847749672830105,
+ "h2d_ms": 0.4216667730361223,
+ "comm_ms": 31.465603737160563,
+ "calls_per_step": 1.0,
+ "bytes_per_call": 2097152.0,
+ "step_ms_all": [
+  1540.0716667063534,
+  1362.1568325906992,
+  1345.1066249981523,
+  1348.9640830084682,
+  1335.1520420983434,
+  1372.0217500813305,
+  1377.9872497543693,
+  1296.8743750825524,
+  1274.7762920334935,
+  1306.2307918444276
+ ],
+ "final_loss": 0.9833909869194031,
+ "gpu_util_pct": null,
+ "flops_per_gpu_step": 6442450944.0,
+ "per_rank": [
+  {
+   "status": "ok",
+   "peak_total_bytes": 704069632,
+   "peak_model_bytes": 654622720,
+   "step_ms": 1347.0353540033102,
+   "comm_ms": 21.18156268261373,
+   "gpu_util_pct": null
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 698613760,
+   "peak_model_bytes": 649936896,
+   "step_ms": 1330.352250020951,
+   "comm_ms": 20.85629152134061,
+   "gpu_util_pct": null
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 701792256,
+   "peak_model_bytes": 652853248,
+   "step_ms": 1345.9214584436268,
+   "comm_ms": 16.137562692165375,
+   "gpu_util_pct": null
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 694714368,
+   "peak_model_bytes": 645545984,
+   "step_ms": 1355.2704581525177,
+   "comm_ms": 16.777145909145474,
+   "gpu_util_pct": null
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 675168256,
+   "peak_model_bytes": 625360896,
+   "step_ms": 1342.4984579905868,
+   "comm_ms": 13.884770916774869,
+   "gpu_util_pct": null
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 670302208,
+   "peak_model_bytes": 620806144,
+   "step_ms": 1344.0844581928104,
+   "comm_ms": 22.60797913186252,
+   "gpu_util_pct": null
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 701300736,
+   "peak_model_bytes": 651558912,
+   "step_ms": 1340.9760422073305,
+   "comm_ms": 21.078729070723057,
+   "gpu_util_pct": null
+  },
+  {
+   "status": "ok",
+   "peak_total_bytes": 675954688,
+   "peak_model_bytes": 626671616,
+   "step_ms": 1360.8520000707358,
+   "comm_ms": 31.465603737160563,
+   "gpu_util_pct": null
+  }
+ ]
+}

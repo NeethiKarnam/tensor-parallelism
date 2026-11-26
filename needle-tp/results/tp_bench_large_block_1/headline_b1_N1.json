@@ -1,0 +1,41 @@
+{
+ "world_size": 1,
+ "device": "cuda",
+ "gpu": "NVIDIA GeForce RTX 2080",
+ "hosts": [
+  "ghc41.ghc.andrew.cmu.edu"
+ ],
+ "machines": 1,
+ "command": "apps/benchmarks/bench_tp.py headline --blocks 1 --device cuda --out-dir results/tp_bench_full_large --d 4096 --h 16384 --batch 128",
+ "time": "2026-11-23 12:06:53",
+ "config": {
+  "d": 4096,
+  "h": 16384,
+  "blocks": 1,
+  "batch": 128,
+  "steps": 10,
+  "warmup": 3,
+  "optimizer": "adam"
+ },
+ "predicted_params_per_rank": 134238208,
+ "predicted_state_bytes": 2147811328,
+ "predicted_activation_bytes": 62914560,
+ "mem_mode": "nvidia-smi",
+ "gpu_total_bytes": 8589934592,
+ "status": "OOM",
+ "params_per_rank": 134238208,
+ "error": "out of memory",
+ "peak_total_bytes": 6700400640,
+ "peak_model_bytes": 6582960128,
+ "baseline_bytes": 117440512,
+ "per_rank": [
+  {
+   "status": "OOM",
+   "peak_total_bytes": 6700400640,
+   "peak_model_bytes": 6582960128,
+   "step_ms": null,
+   "comm_ms": null,
+   "gpu_util_pct": null
+  }
+ ]
+}
